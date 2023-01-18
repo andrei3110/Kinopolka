@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kino-polka</title>
+    <link rel="icon" href="/img/иконка.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <div class="header">
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="/home"><button class="dropMenu__btn"> Главная</button></a>
+                <a href="/categories/1"><button class="dropMenu__btn">Фильмы</button></a>
+                <a href="/categories/2"><button class="dropMenu__btn">Сериалы</button></a>
+                <a href="/categories/3"><button class="dropMenu__btn">Мультфильмы</button></a>
+            </div>
+        </div>
+        
+        <script>
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+        
+            window.onclick = function (event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+        </script>
+        <div class="header__name">Kino-polka</div>
+    </div>
+    <% if (auth) { %>
+
+        <% if (admin) { %>
+            <a href="/add"><button class="btn add"><i class="fa fa-plus-square" aria-hidden="true"></i></button></a>
+            <a href="/bascet__btn"><button class="btn bascet"><i class="fa fa-bookmark" aria-hidden="true"></i></button></a>
+            <a href="/users__btn"><button class="btn users"><i class="fa fa-user-circle" aria-hidden="true"></i></button></a>
+            <a href="/notification__btn"><button class="btn notification"><i class="fa fa-bell" aria-hidden="true"></i></button></a>
+        <% } else { %>
+                <a href="/bascet__btn"><button class="btn bascet__simple"><i class="fa fa-bookmark" aria-hidden="true"></i></button></a>
+                <a href="/notification__btn"><button class="btn notification__simple"><i class="fa fa-bell" aria-hidden="true"></i></button></a>
+        
+        <% } %>
+        <a href="/Logout"><button class=" btn LogIn">выход</button></a>
+    <% } else { %>
+        <a href="/enter"><button class=" btn LogIn">вход</button></a>
+    <% } %>
+            
+</head>
+
+<body>

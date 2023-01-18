@@ -1,0 +1,207 @@
+<%- include('particles/header.ejs') %>
+<%- include('particles/menu.ejs') %>
+<%- include('particles/adaptive.ejs') %>
+
+            <div class="wrapper">
+                <div class="content">
+                    <div class="header__image"></div>
+                    <div class="description__film" id="films">
+                        <input type="hidden" name="nameId" value="<%= items.name %>">
+                        <img class="description__image" src="/img/<%= items.image %>">
+                        <h2 class="description__name" id="name">
+                            <%= items.name %>
+                        </h2>
+                        <span class="about__film">О фильме:</span>
+                        <div class="description__country" id="country">
+                            Страна: <span class="textViews" id="textViews">
+                                <%= items.country %>
+                            </span>
+                        </div>
+
+                        <div class="description__genre" id="genre">
+                            Жанр: <span class="textViews" id="textViews">
+                                <%= items.genre %>
+                            </span>
+                        </div>
+                        <div class="description__producer" id="producer">
+                            продюсер: <span class="textViews" id="textViews">
+                                <%= items.producer %>
+                            </span>
+                        </div>
+                        <div class="description__actor" id="actor">
+                            в главных ролях:
+                            <span class="textViews" id="textViews">
+                                <%= items.actor %>
+                            </span>
+                        </div>
+                        <div class="description__screenwriter" id="screenwriter">
+                            сценарист: <span class="textViews " id="textViews">
+                                <%= items.screenwriter %>
+                            </span>
+                        </div>
+                        <div class="description__operator" id="operator">
+                            оператор: <span class="textViews" id="textViews">
+                                <%= items.operator%>
+                            </span>
+                        </div>
+                        <div class="description__regicer" id="regicer">
+                            режиссер: <span class="textViews" id="textViews">
+                                <%= items.regicer %>
+                            </span>
+                        </div>
+                        <div class="description__year">
+                           год: <span class="textViews" id="textViews"><%= items.year %></span>
+                        </div>
+                        <div class="description__description" id="description">
+                            описание: 
+                                <p><%= items.description %></p>
+                           
+                        </div>
+                        
+                        <div class="averange" id="averange">
+                            рейтинг:<span class="averangeText" id="averangeText">
+                               
+                                <% if (number ==NaN) { %>
+                                    0
+                                <% } else { %>
+                                    <%= number %>
+                                <% } %>
+                            </span>
+                        </div>  
+                        <div class="voices" id="voices">
+                            всего голосов:<span class="textViews" id="textViews">
+                                <%= voices %>
+                            </span></div>
+
+
+                        <div class="slider" id="slider">
+
+                        </div>
+                        <hr>
+                    </div>
+
+
+                    
+                        <div class="ratingForm">
+                            
+                            <form action="/rating/<%= items.id %>" method="post">
+                                <input type="hidden" name="item__id" value="<%= items.id %>">
+                                <input type="hidden" name="item__name" value="<%= items.name %>">
+
+                                <% if (auth) { %>
+
+                                    <div class="container" id="container">
+                                        <hr>
+                                        <div class="post">
+                                            <div class="text">Thanks for rating us !</div>
+                                            <!-- <div class="edit">EDIT</div> -->
+                                        </div>
+                                        <div class="star-widget">
+                                            <input type="radio" name="rate" id="rate-5" value="5"><label for="rate-5"
+                                                class="fa fa-star" aria-hidden="true">
+                                            </label>
+                                            <input type="radio" name="rate" id="rate-4" value="4"> <label for="rate-4"
+                                                class="fa fa-star" aria-hidden="true">
+
+                                            </label>
+                                            <input type="radio" name="rate" id="rate-3" value="3"><label for="rate-3"
+                                                class="fa fa-star" aria-hidden="true">
+                                            </label>
+                                            <input type="radio" name="rate" id="rate-2" value="2"><label for="rate-2"
+                                                class="fa fa-star" aria-hidden="true">
+
+                                            </label>
+                                            <input type="radio" name="rate" id="rate-1" value="1"><label for="rate-1"
+                                                class="fa fa-star" aria-hidden="true">
+
+                                            </label>
+
+
+                                            <header>
+
+                                                <div class="textarea">
+                                                    <textarea cols="30" placeholder="Describe your  experense..."
+                                                        type="text" name="text"></textarea>
+                                                </div>
+                                                <div class="Btn">
+                                                    <button type="submit" id="button">Post</button>
+                                                </div>
+                                            </header>
+
+                                        </div>
+                                        <hr>
+                                    </div>
+                            </form>
+                        </div>
+                </div>
+
+                <% if (mark) { %>
+                    <script>
+
+                        const post = document.querySelector(".post")
+                        const widget = document.querySelector(".star-widget")
+
+
+                        i == true;
+                        widget.style.display = "block";
+                        post.style.display = "none";
+
+
+                    </script>
+                    <% } else { %>
+                        <script>
+
+                            const button = document.getElementById("button")
+                            const post = document.querySelector(".post")
+                            const widget = document.querySelector(".star-widget")
+                            const editBtn = document.querySelector(".edit")
+                            let i = true;
+
+
+                            widget.style.display = "none";
+                            post.style.display = "block";
+
+                            button.addEventListener("click", () => {
+                                widget.style.display = "none";
+                                post.style.display = "block";
+                                i = false;
+                                return false;
+                            })
+                        </script>
+
+                        <% } %>
+                            <% } %>
+
+                                <div class="content2">
+                                    <div class="comment" id="comment">
+                                       
+                                        <div class="commentName">Комментарии:</div>
+                                        <hr>
+                                        <% for (let i=0; i < comments.length; i++) { %>
+                                            <div class="comment__box">
+                                                <div name="userName" class="commentUsername">
+                                                    <%= comments[i].user__name %>
+                                                </div>
+                                                <div name="text" class="commentText">
+                                                    <%= comments[i].text %>
+                                                </div>
+
+                                                <% if (auth) { %>
+
+                                                    <form action="/des__film/<%= items.id %>" method="post">
+                                                        <input type="hidden" name="commentId" value="<%= comments[i].id %>">
+                                                        <input type="hidden" name="itemsID" value="<%= items.id %>">
+                                                        <input type="hidden" name="commentName" value="<%= comments[i].userName %>">
+                                                        <button class="deleteComment" type="submit"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></button>
+                                                    </form>
+
+                                                 <% } %>
+                                            </div>
+                                        <% } %>
+                                    
+                                    </div>
+                                    
+                                </div>
+</div>
+<%- include('particles/footer.ejs') %>
+            
