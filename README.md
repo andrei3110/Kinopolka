@@ -15,3 +15,8 @@
 Запуск веб-сервера
 
     npm run dev
+
+    обновление на гитхабе 
+    git add .
+    git commit -m 'edit text'
+    git push

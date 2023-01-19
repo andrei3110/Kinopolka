@@ -1,11 +1,17 @@
 
-<div class="menu">
 
+
+<input type="checkbox" id="side-checkbox" />
+<div class="side-panel">
+    <label class="side-button-2" for="side-checkbox">+</label>    
+    <div class="side-title">Меню</div>
     <a href="/home"><button class="menu__btn"> Главная</button></a>
     <a href="/categories/1"><button class="menu__btn">Фильмы</button></a>
     <a href="/categories/2"><button class="menu__btn">Сериалы</button></a>
     <a href="/categories/3"><button class="menu__btn">Мультфильмы</button></a>
 </div>
+
+  
 <% if (dark__light) { %>
     <a href="/dark"><button class="dark__light"><i class="fa fa-moon fa-2x" aria-hidden="true"></i></button></a>
     <script>

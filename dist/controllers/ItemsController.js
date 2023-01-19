@@ -337,6 +337,7 @@ class ItemsController {
                 searchMove: req.session.searchMove,
                 auth: req.session.auth,
                 admin: req.session.admin,
+                active: req.session.active,
                 dark__light: req.session.dark__light,
                 mark: req.session.mark
             });
@@ -357,6 +358,7 @@ class ItemsController {
                 searchMove: req.session.searchMove,
                 auth: req.session.auth,
                 admin: req.session.admin,
+                active: req.session.active,
                 category: req.session.category,
                 dark__light: req.session.dark__light,
                 mark: req.session.mark

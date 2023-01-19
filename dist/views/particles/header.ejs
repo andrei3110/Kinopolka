@@ -49,7 +49,9 @@
             <a href="/bascet__btn"><button class="btn bascet"><i class="fa fa-bookmark" aria-hidden="true"></i></button></a>
             <a href="/users__btn"><button class="btn users"><i class="fa fa-user-circle" aria-hidden="true"></i></button></a>
             <a href="/notification__btn"><button class="btn notification"><i class="fa fa-bell" aria-hidden="true"></i></button></a>
+           
         <% } else { %>
+            
                 <a href="/bascet__btn"><button class="btn bascet__simple"><i class="fa fa-bookmark" aria-hidden="true"></i></button></a>
                 <a href="/notification__btn"><button class="btn notification__simple"><i class="fa fa-bell" aria-hidden="true"></i></button></a>
         
@@ -58,7 +60,12 @@
     <% } else { %>
         <a href="/enter"><button class=" btn LogIn">вход</button></a>
     <% } %>
-            
+    <div class="side-button-1-wr">
+        <label class="side-button-1" for="side-checkbox">
+            <div class="side-b side-open">Меню</div>
+            <div class="side-b side-close">Меню</div>
+        </label>
+    </div>
 </head>
 
 <body>

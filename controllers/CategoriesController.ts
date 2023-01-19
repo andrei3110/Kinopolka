@@ -7,6 +7,7 @@ const prisma: PrismaClient = new PrismaClient();
 export class CategoriesController {
     async index(req: Request, res: Response) {
          const {id} = req.params;
+         req.session.category = 1;
         let categories = await prisma.categories.findMany({
             where: {
                id:Number(id),

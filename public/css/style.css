@@ -104,10 +104,10 @@ hr {
 .footer {
   background-color: #e9e9e9;
   position: relative;
-  width: 81%;
+  width: 100%;
   height: 19%;
   bottom: 0;
-  left: 18%;
+  
   border-radius: 10px 10px 0px 0px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   flex-grow: 0;
@@ -211,6 +211,7 @@ hr {
 
   bottom: 0;
   min-height: 100%;
+  background-color: rgb(255, 255, 255);
 
 }
 
@@ -287,9 +288,9 @@ hr {
 /* //////////////////////////////////// Rating */
 
 .container {
-  width: 100%;
+  width: 76%;
   position: relative;
-  left: 5%;
+  left: 10%;
   bottom: 3px;
   background-color: #e7e7e7;
   padding: 20px 30px;
@@ -554,7 +555,7 @@ form .Btn button:hover {
   z-index: 3;
   opacity: 100%;
   position: absolute;
-  left: 45%;
+  left: 35%;
   bottom: 11%;
   border-radius: 30px;
   box-shadow: 0 14px 28px rgba(56, 54, 54, 0.25), 0 10px 10px rgba(42, 41, 41, 0.22);
@@ -605,7 +606,7 @@ form .Btn button:hover {
   z-index: 3;
   opacity: 100%;
   position: absolute;
-  left: 45%;
+  left: 35%;
   bottom: 11%;
   border-radius: 30px;
   box-shadow: 0 14px 28px rgba(56, 54, 54, 0.25), 0 10px 10px rgba(42, 41, 41, 0.22);
@@ -980,15 +981,15 @@ form .Btn button:hover {
   transition-duration: 0.3s;
   transition-timing-function: ease;
   transition-delay: 0s;
-  background-color: #efeeee;
+  background-color: #f4f4f4;
   position: relative;
   top: 0px;
-  border-bottom: 1px solid rgb(146, 145, 145);
-  left: 19%;
+  border-bottom: 1px solid rgb(187, 187, 187);
+  left: 10%;
 }
 
 .film__object:hover {
-  background-color: #d9d9d9;
+  background-color: #e0e0e0;
   transition: all 0.4s ease;
   height: 152px;
   z-index: 4;
@@ -1069,7 +1070,7 @@ form .Btn button:hover {
 }
 
 .genre__object {
-  width: 80%;
+  width: 75%;
   height: 100px;
   padding: 3px;
   z-index: 2;
@@ -1082,7 +1083,8 @@ form .Btn button:hover {
   position: relative;
   bottom:50%;
   border-bottom: 1px solid rgb(177, 177, 177);
-  left: 19%;
+  left:13%;
+  
 }
 
 .genre__object:hover {
@@ -1095,7 +1097,7 @@ form .Btn button:hover {
 
 /* //////////////////////////////////////////////////////////////////////// description films */
 .description__film {
-  width: 90%;
+  width: 80%;
   height: 1000px;
   padding: 3px;
   z-index: 2;
@@ -1103,7 +1105,7 @@ form .Btn button:hover {
   position: relative;
   bottom: 0px;
   border-bottom: 1px solid rgb(146, 145, 145);
-  left: 18%;
+  left: 10%;
 }
 
 .about__film {
@@ -1434,12 +1436,12 @@ form .Btn button:hover {
 /* ////////////////////////////////////////////////////////////////////////  COMMENTS */
 .comment {
   position: relative;
-  width: 80%;
-  margin: 5px;
+  width: 76%;
+  margin-top: 20px;
   bottom: 10px;
   text-align: center;
   color: rgb(0, 0, 0);
-  right: -17%;
+  left:10%;
   padding: 30px;
   z-index: 2;
   height: 100%;
@@ -1834,7 +1836,7 @@ form .Btn button:hover {
   position:relative;
   top:0px;
   z-index: 3;
-  left:19%;
+  
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
   height:50px;
@@ -1844,7 +1846,7 @@ form .Btn button:hover {
   position:relative;
   width:100px;
   height:100%;
-  left:15%;
+  left:30%;
   z-index: 3;
   color:#606060;
   margin: 0px;
@@ -1871,4 +1873,113 @@ form .Btn button:hover {
   border-radius: 10px;
   color:rgb(0, 0, 0);
   transition: all 0.6s ease;
+}
+
+/* ///////////////////////////////// */
+/* Оформление панели */
+#side-checkbox {
+  display: none;
+}
+.side-panel {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  font-family: Century Gothic;
+  left: -360px;
+  background-color: rgb(40, 41, 49);
+  transition: all 0.5s;   
+  width: 320px;
+  height: 100vh;
+  box-shadow: 10px 0 20px rgba(0,0,0,0.4);
+  color: #FFF;
+  padding: 10px 5px;
+}
+.side-title {
+  font-size: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-family: Century Gothic;
+  text-align: center;
+  border-bottom: 2px solid #BFE2FF;
+}
+/* Оформление кнопки на странице */
+.side-button-1-wr {
+  text-align: center; /* Контейнер для кнопки, чтобы было удобнее ее разместить */
+}
+.side-button-1 {
+  display: inline-block;
+}
+.side-button-1 .side-b {
+  margin: 10px;
+  top:8%;
+  left:0%;
+  text-decoration: none;
+  position: fixed;
+  z-index: 9;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 10px 50px;
+  border-radius: 10px;
+  font-family: Century Gothic;
+  color: #FFF;
+  text-transform: uppercase; 
+ 
+  background-color: rgb(45, 45, 45);
+  cursor: pointer; 
+  
+}
+.side-button-1 .side-b:hover,
+.side-button-1 .side-b:active,
+.side-button-1 .side-b:focus {
+  color: #FFF;
+}
+.side-button-1 .side-b:after,
+.side-button-1 .side-b:before {
+  position: absolute;
+  height: 4px;
+  left: 50%;
+  bottom: -6px;
+  content: "";
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+.side-button-1 .side-b:before {
+  top: -6px;
+}
+.side-button-1 .side-b:hover:after,
+.side-button-1 .side-b:hover:before {
+  width: 100%;
+  left: 0;
+}
+/* Переключатели кнопки 1 */
+.side-button-1 .side-close {
+  
+  display: none;
+}
+#side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-open {
+  display: none;
+}
+#side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-close {
+  display: block;
+}
+#side-checkbox:checked + .side-panel {
+  left: 0;
+}
+/* Оформление кнопки на панеле */
+.side-button-2 {
+  font-size: 30px;
+  border-radius: 20px;
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  transform: rotate(45deg);
+  color: #BFE2FF;    
+  transition: all 280ms ease-in-out;    
+}
+.side-button-2:hover {
+  transform: rotate(45deg) scale(1.1);    
+  color: #FFF;
 }

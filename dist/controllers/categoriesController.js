@@ -17,6 +17,7 @@ class CategoriesController {
     index(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
+            req.session.category = 1;
             let categories = yield prisma.categories.findMany({
                 where: {
                     id: Number(id),
