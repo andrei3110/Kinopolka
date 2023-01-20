@@ -35,7 +35,8 @@ declare module "express-session" {
     dark__light:boolean,
     deleteComment:boolean,
     test:Number,
-    active: String
+    active: String,
+    status : String
 
   }
 };
@@ -47,6 +48,7 @@ app.listen(3000, () => {
 });
 
 app.get("/", (req: Request, res: Response) => {
+  req.session.category = 1;
   res.render('home',{
     auth: req.session.auth,
     admin: req.session.admin,

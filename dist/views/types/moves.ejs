@@ -22,7 +22,17 @@
                         </div>
                         <div class="film__genre">
                             <%= items[i].genre %>
+                        </div> 
+                            <% if (items[i].status == "бесплатно") { %>
+                           <div class="film__status free">
+                            <%= items[i].status %>
                         </div>
+                        <% } else { %>
+                            <div class="film__status sub">
+                                <%= items[i].status %>
+                            </div>
+                        <% } %>
+                        
                         <img class="film__image" src="/img/<%= items[i].image %>">
                         <div>
 

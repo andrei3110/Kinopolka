@@ -29,6 +29,7 @@ app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
 app.get("/", (req, res) => {
+    req.session.category = 1;
     res.render('home', {
         auth: req.session.auth,
         admin: req.session.admin,

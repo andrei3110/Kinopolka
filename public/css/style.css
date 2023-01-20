@@ -1005,7 +1005,25 @@ form .Btn button:hover {
   top: 8px;
   left: 10px;
 }
-
+.film__status{
+  position:relative;
+  color:rgb(255, 255, 255);
+  left: 0%;
+  width:100px;
+  text-align: center;
+  top: 75%;
+  z-index: 3;
+  border-radius: 0 5px 5px 0;
+ 
+  font-family: Century Gothic;
+  font-size: small;
+}
+ .sub{
+  background-color: red;
+ }
+ .free{
+  background-color: rgb(94, 94, 94);
+ }
 .users__object {
   width: 100%;
   height: 100px;
@@ -1982,4 +2000,19 @@ form .Btn button:hover {
 .side-button-2:hover {
   transform: rotate(45deg) scale(1.1);    
   color: #FFF;
+}
+.subscribe{
+  background-color: rgb(255, 31, 31);
+  border:none;
+  color: white;
+  padding: 10px;
+  position:fixed;  
+  border-radius: 10px;
+  left:13%;
+  top:10%;
+  z-index: 6;
+  font-family: century Gothic;
+}
+a{
+  text-decoration: none;
 }

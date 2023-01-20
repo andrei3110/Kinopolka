@@ -7,7 +7,7 @@ const prisma: PrismaClient = new PrismaClient();
 export class CategoriesController {
     async index(req: Request, res: Response) {
          const {id} = req.params;
-         req.session.category = 1;
+        
         let categories = await prisma.categories.findMany({
             where: {
                id:Number(id),
@@ -20,12 +20,14 @@ export class CategoriesController {
         });
         req.session.category = Number(id);
         if(req.session.category == 1){
-            console.log("фильмы")
+           
             req.session.active = "genre"
         } else if(req.session.category==2){
-            console.log("сериалы")
+            req.session.active = "genre"
+            
         } else if(req.session.category == 3){
-            console.log("мультфильмы")
+            req.session.active = "genre"
+           
         }
        
         const genres = await prisma.genres.findMany({})
@@ -36,6 +38,7 @@ export class CategoriesController {
             auth: req.session.auth,
             active:req.session.active,
             admin: req.session.admin,
+            status: req.session.status,
             dark__light: req.session.dark__light,
             category: req.session.category,
             'items': items,
@@ -68,6 +71,7 @@ export class CategoriesController {
        res.render('types/moves', {
            auth: req.session.auth,
            active:req.session.active,
+           status: req.session.status,
            admin: req.session.admin,
            dark__light: req.session.dark__light,
            category: req.session.category,
@@ -94,6 +98,7 @@ export class CategoriesController {
 });
    res.render('types/moves', {
        auth: req.session.auth,
+       status: req.session.status,
        admin: req.session.admin,
        active:req.session.active,
        dark__light: req.session.dark__light,
@@ -124,6 +129,7 @@ async searchFilms(req: Request, res: Response) {
         'items': items,
         searchMove:req.session.searchMove,
         auth: req.session.auth,
+        status: req.session.status,
         active:req.session.active,
         admin: req.session.admin,
         dark__light: req.session.dark__light,
@@ -140,6 +146,7 @@ async years(req: Request, res: Response) {
    res.render('types/years', {
        auth: req.session.auth,
        active:req.session.active,
+       status: req.session.status,
        admin: req.session.admin,
        dark__light: req.session.dark__light,
        category: req.session.category,
@@ -159,6 +166,7 @@ async ByYear(req: Request, res: Response) {
 });
    res.render('types/moves', {
        auth: req.session.auth,
+       status: req.session.status,
        active:req.session.active,
        admin: req.session.admin,
        dark__light: req.session.dark__light,
@@ -178,6 +186,7 @@ async ByGenre(req: Request, res: Response) {
    })
    res.render('types/index', {
        auth: req.session.auth,
+       status: req.session.status,
        admin: req.session.admin,
        active:req.session.active,
        dark__light: req.session.dark__light,
@@ -197,6 +206,7 @@ async Country(req: Request, res: Response) {
    res.render('types/country', {
        auth: req.session.auth,
        active:req.session.active,
+       status: req.session.status,
        admin: req.session.admin,
        dark__light: req.session.dark__light,
        category: req.session.category,
@@ -217,6 +227,7 @@ async ByCountry(req: Request, res: Response) {
        auth: req.session.auth,
        active:req.session.active,
        admin: req.session.admin,
+       status: req.session.status,
        dark__light: req.session.dark__light,
        category: req.session.category,
        'items': items,

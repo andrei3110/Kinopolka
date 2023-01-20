@@ -17,7 +17,6 @@ class CategoriesController {
     index(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = req.params;
-            req.session.category = 1;
             let categories = yield prisma.categories.findMany({
                 where: {
                     id: Number(id),
@@ -30,14 +29,13 @@ class CategoriesController {
             });
             req.session.category = Number(id);
             if (req.session.category == 1) {
-                console.log("фильмы");
                 req.session.active = "genre";
             }
             else if (req.session.category == 2) {
-                console.log("сериалы");
+                req.session.active = "genre";
             }
             else if (req.session.category == 3) {
-                console.log("мультфильмы");
+                req.session.active = "genre";
             }
             const genres = yield prisma.genres.findMany({});
             const cartoons = yield prisma.cartoonGenres.findMany({});
@@ -45,6 +43,7 @@ class CategoriesController {
                 auth: req.session.auth,
                 active: req.session.active,
                 admin: req.session.admin,
+                status: req.session.status,
                 dark__light: req.session.dark__light,
                 category: req.session.category,
                 'items': items,
@@ -77,6 +76,7 @@ class CategoriesController {
             res.render('types/moves', {
                 auth: req.session.auth,
                 active: req.session.active,
+                status: req.session.status,
                 admin: req.session.admin,
                 dark__light: req.session.dark__light,
                 category: req.session.category,
@@ -103,6 +103,7 @@ class CategoriesController {
             });
             res.render('types/moves', {
                 auth: req.session.auth,
+                status: req.session.status,
                 admin: req.session.admin,
                 active: req.session.active,
                 dark__light: req.session.dark__light,
@@ -134,6 +135,7 @@ class CategoriesController {
                 'items': items,
                 searchMove: req.session.searchMove,
                 auth: req.session.auth,
+                status: req.session.status,
                 active: req.session.active,
                 admin: req.session.admin,
                 dark__light: req.session.dark__light,
@@ -149,6 +151,7 @@ class CategoriesController {
             res.render('types/years', {
                 auth: req.session.auth,
                 active: req.session.active,
+                status: req.session.status,
                 admin: req.session.admin,
                 dark__light: req.session.dark__light,
                 category: req.session.category,
@@ -167,6 +170,7 @@ class CategoriesController {
             });
             res.render('types/moves', {
                 auth: req.session.auth,
+                status: req.session.status,
                 active: req.session.active,
                 admin: req.session.admin,
                 dark__light: req.session.dark__light,
@@ -183,6 +187,7 @@ class CategoriesController {
             const cartoons = yield prisma.cartoonGenres.findMany({});
             res.render('types/index', {
                 auth: req.session.auth,
+                status: req.session.status,
                 admin: req.session.admin,
                 active: req.session.active,
                 dark__light: req.session.dark__light,
@@ -200,6 +205,7 @@ class CategoriesController {
             res.render('types/country', {
                 auth: req.session.auth,
                 active: req.session.active,
+                status: req.session.status,
                 admin: req.session.admin,
                 dark__light: req.session.dark__light,
                 category: req.session.category,
@@ -221,6 +227,7 @@ class CategoriesController {
                 auth: req.session.auth,
                 active: req.session.active,
                 admin: req.session.admin,
+                status: req.session.status,
                 dark__light: req.session.dark__light,
                 category: req.session.category,
                 'items': items,

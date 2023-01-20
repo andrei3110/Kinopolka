@@ -11,6 +11,7 @@ export class ItemsController {
         res.render('home', {
             auth: req.session.auth,
             admin: req.session.admin,
+            status: req.session.status,
             dark__light: req.session.dark__light,
             searchMove:req.session.searchMove,
         });
@@ -20,6 +21,7 @@ export class ItemsController {
         res.render('home', {
             auth: req.session.auth,
             admin: req.session.admin,
+            status: req.session.status,
             dark__light: req.session.dark__light,
             searchMove:req.session.searchMove,
         });
@@ -41,6 +43,7 @@ export class ItemsController {
                 auth: req.session.auth,
                 searchMove: req.session.searchMove,
                 admin: req.session.admin,
+                status: req.session.status,
                 dark__light: req.session.dark__light,
             });
     }
@@ -67,12 +70,13 @@ export class ItemsController {
             'genres': genres,
             auth: req.session.auth,
             admin: req.session.admin,
+            status: req.session.status,
             dark__light: req.session.dark__light,
             category: req.session.category,
         });
     }
     async AddItems(req: Request, res: Response) {
-        const { name, image, description, producer, actor, screenwriter, operator, regicer,year,type, age, country, genre } = req.body;
+        const { name, image, description, producer, actor, screenwriter, operator, regicer,year,type, age, country,status, genre } = req.body;
         const items = await prisma.items.findMany({
             where: {
 
@@ -88,7 +92,9 @@ export class ItemsController {
                 country: country,
                 age: age,
                 genre: genre,
-                year: Number(year)
+                year: Number(year),
+                status : status
+
             }
         });
         let genres = await prisma.genres.findMany({})
@@ -115,9 +121,12 @@ export class ItemsController {
                 country: country,
                 age: age,
                 genre: all,
-                year: Number(year)
+                year: Number(year),
+                status : status
             }
         });
+        req.session.status = status;
+        console.log(req.session.status)
         res.redirect('/add')
     }
 
@@ -137,6 +146,7 @@ export class ItemsController {
             name:req.session.name,
             auth: req.session.auth,
             admin: req.session.admin,
+            status: req.session.status,
             category: req.session.category,
             dark__light: req.session.dark__light,
             'bascet': bascet
@@ -153,6 +163,7 @@ export class ItemsController {
         res.render('users', {
             name:req.session.name,
             auth: req.session.auth,
+            status: req.session.status,
             admin: req.session.admin,
             category: req.session.category,
             dark__light: req.session.dark__light,
@@ -235,6 +246,7 @@ export class ItemsController {
             voices : k,
             auth: req.session.auth,
             password: req.session.password,
+            status: req.session.status,
             admin: req.session.admin,
             dark__light: req.session.dark__light,
             mark: req.session.mark,
@@ -259,6 +271,7 @@ export class ItemsController {
         res.render('description', {
 
             auth: req.session.auth,
+            status: req.session.status,
             admin: req.session.admin,
             dark__light: req.session.dark__light,
             mark: req.session.mark
@@ -342,6 +355,7 @@ export class ItemsController {
             auth: req.session.auth,
             admin: req.session.admin,
             active:req.session.active,
+            status: req.session.status,
             dark__light: req.session.dark__light,
             mark: req.session.mark
         })
@@ -362,6 +376,7 @@ export class ItemsController {
             searchMove:req.session.searchMove,
             auth: req.session.auth,
             admin: req.session.admin,
+            status: req.session.status,
             active:req.session.active,
             category: req.session.category,
             dark__light: req.session.dark__light,
