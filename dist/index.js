@@ -12,6 +12,7 @@ const AuthController_1 = require("./controllers/AuthController");
 const CommentsController_1 = require("./controllers/CommentsController");
 const CategoriesController_1 = require("./controllers/CategoriesController");
 const NotificationController_1 = require("./controllers/NotificationController");
+const SubscribeController_1 = require("./controllers/SubscribeController");
 const app = (0, express_1.default)();
 const itemsController = new ItemsController_1.ItemsController();
 const ratingController = new RatingController_1.RatingController();
@@ -19,6 +20,7 @@ const authController = new AuthController_1.AuthController();
 const commentsController = new CommentsController_1.CommentsController();
 const categoriesController = new CategoriesController_1.CategoriesController();
 const notificationController = new NotificationController_1.NotificationController();
+const subscribeController = new SubscribeController_1.SubscribeController();
 app.use(express_1.default.static('public'));
 app.use(express_1.default.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
@@ -106,6 +108,9 @@ app.post("/AddItems", (req, res) => {
 });
 app.post("/searchAllFilms", (req, res) => {
     itemsController.homeSearch(req, res);
+});
+app.post("/subscribe", (req, res) => {
+    subscribeController.RenderSubscribe(req, res);
 });
 app.get("/home", (req, res) => {
     itemsController.home(req, res);

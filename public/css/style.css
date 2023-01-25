@@ -1,6 +1,6 @@
 html,
 body {
- 
+
   overflow-x: hidden;
   background-image: url(/img/фон.png);
   /* background: -webkit-linear-gradient(179deg, #afeeee, #fb46a1, #ff69b4, #afeeee);
@@ -107,13 +107,14 @@ hr {
   width: 100%;
   height: 19%;
   bottom: 0;
-  
+
   border-radius: 10px 10px 0px 0px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   flex-grow: 0;
 }
-.hollow{
-  height:20px;
+
+.hollow {
+  height: 20px;
   width: 100%;
 }
 
@@ -138,20 +139,22 @@ hr {
   left: 15px;
 }
 
-.error__name{
-  width:200px;
-  padding: 5px;;
-  color:white;
+.error__name {
+  width: 200px;
+  padding: 5px;
+  ;
+  color: white;
   z-index: 9;
-  position:relative;
-  top:100px;
-  left:60px;
+  position: relative;
+  top: 100px;
+  left: 60px;
   border: 2px solid rgb(255, 157, 157);
   font-family: Century Gothic;
   text-align: center;
 
   background-color: rgb(213, 94, 94);
 }
+
 .body__fone {
   width: 100%;
   height: 100%;
@@ -671,15 +674,17 @@ form .Btn button:hover {
 .input__addon__key {
   position: relative;
   top: 180px;
-  left:-310px;
+  left: -310px;
   color: #4c4c4c;
 }
+
 .afterError__input__addon__key {
   position: relative;
   top: 110px;
-  left:20px;
+  left: 20px;
   color: #4c4c4c;
 }
+
 .afterError__input__reg {
   width: 300px;
   height: 50px;
@@ -853,6 +858,7 @@ form .Btn button:hover {
   border-radius: 0px 0px 15px 0px;
   background-color: rgb(45, 45, 45);
 }
+
 .bascet__simple {
   height: 70px;
   width: 60px;
@@ -863,6 +869,7 @@ form .Btn button:hover {
   border-radius: 0px 0px 15px 0px;
   background-color: rgb(45, 45, 45);
 }
+
 .notification__simple {
   height: 70px;
   width: 60px;
@@ -1005,25 +1012,29 @@ form .Btn button:hover {
   top: 8px;
   left: 10px;
 }
-.film__status{
-  position:relative;
-  color:rgb(255, 255, 255);
+
+.film__status {
+  position: relative;
+  color: rgb(255, 255, 255);
   left: 0%;
-  width:100px;
+  width: 100px;
   text-align: center;
   top: 75%;
   z-index: 3;
   border-radius: 0 5px 5px 0;
- 
+
   font-family: Century Gothic;
   font-size: small;
 }
- .sub{
+
+.sub {
   background-color: red;
- }
- .free{
+}
+
+.free {
   background-color: rgb(94, 94, 94);
- }
+}
+
 .users__object {
   width: 100%;
   height: 100px;
@@ -1099,16 +1110,16 @@ form .Btn button:hover {
   transition-delay: 0s;
   background-color: #ececec;
   position: relative;
-  bottom:50%;
+  bottom: 50%;
   border-bottom: 1px solid rgb(177, 177, 177);
-  left:13%;
-  
+  left: 13%;
+
 }
 
 .genre__object:hover {
   background-color: #d9d9d9;
   transition: all 0.4s ease;
-  height:102px;
+  height: 102px;
   z-index: 4;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -1215,7 +1226,8 @@ form .Btn button:hover {
   color: black;
   font-family: Century Gothic;
 }
-.description__year{
+
+.description__year {
   position: absolute;
   left: 400px;
   top: 380px;
@@ -1223,6 +1235,7 @@ form .Btn button:hover {
   color: black;
   font-family: Century Gothic;
 }
+
 .description__description {
   position: absolute;
   left: 380px;
@@ -1459,7 +1472,7 @@ form .Btn button:hover {
   bottom: 10px;
   text-align: center;
   color: rgb(0, 0, 0);
-  left:10%;
+  left: 10%;
   padding: 30px;
   z-index: 2;
   height: 100%;
@@ -1746,150 +1759,166 @@ form .Btn button:hover {
 .dark__comment__text {
   color: white;
 }
-.content__notification{
-  position:relative;
+
+.content__notification {
+  position: relative;
   background-color: #e7e7e7;
   flex-grow: 1;
   flex: 1 1 auto;
   width: 80%;
-  left:19%;
+  left: 19%;
   min-height: 100%;
-  
+
   border-left: 2px solid rgb(157, 157, 157);
   border-right: 2px solid rgb(157, 157, 157);
 }
-.notification__button--Notification{
-  border:none;
-  width:150px;
-  height:50px;
+
+.notification__button--Notification {
+  border: none;
+  width: 150px;
+  height: 50px;
   background-color: #e7e7e7;
-  color:black;
-  position:relative;
+  color: black;
+  position: relative;
 
   font-family: Century Gothic;
   font-size: 105%;
   text-align: center;
 }
-.support__button--Notification{
-  border:none;
-  width:150px;
-  height:50px;
+
+.support__button--Notification {
+  border: none;
+  width: 150px;
+  height: 50px;
   background-color: #c0c0c0;
-  color:black;
-  position:relative;
-  
+  color: black;
+  position: relative;
+
   font-family: Century Gothic;
   font-size: 105%;
   text-align: center;
 }
-.notification__button--Support{
-  border:none;
-  width:150px;
-  height:50px;
+
+.notification__button--Support {
+  border: none;
+  width: 150px;
+  height: 50px;
   background-color: #c0c0c0;
-  color:black;
-  position:relative;
-  left:20%;
+  color: black;
+  position: relative;
+  left: 20%;
   font-family: Century Gothic;
   font-size: 105%;
   text-align: center;
 }
-.support__button--Support{
-  border:none;
-  width:150px;
-  height:50px;
+
+.support__button--Support {
+  border: none;
+  width: 150px;
+  height: 50px;
   background-color: #e7e7e7;
-  
-  color:black;
-  position:relative;
-  left:19%;
+
+  color: black;
+  position: relative;
+  left: 19%;
   font-family: Century Gothic;
   font-size: 105%;
   text-align: center;
 }
-.notification__header{
-  width:100%;
-  height:50px;
-  position:relative;
+
+.notification__header {
+  width: 100%;
+  height: 50px;
+  position: relative;
   background-color: #d3d3d3;
 }
-.chat__wrapper{
-  display:block;
+
+.chat__wrapper {
+  display: block;
 }
-.chat{
-  display:inline-block;
+
+.chat {
+  display: inline-block;
   border-radius: 10px;
-  background-color:  #d3d3d3;
-  left:20px;
-  margin-left:30px;
+  background-color: #d3d3d3;
+  left: 20px;
+  margin-left: 30px;
   margin-top: 40px;
-  padding:10px;  
+  padding: 10px;
 }
-.name__noitfication{
-  font-family: Century Gothic;
-}
-.text__notification{
-  font-family: Century Gothic;
-}
-.inputmessage{
-  width:300px;
-  height:40px;
-  border: 1px solid #727272;
-  position:relative;
-  margin-top: 2%;
-  left:30%;
-}
-.sendMessage{
-  width:100px;
-  height:44px;
-  border: 1px solid #727272;
-  position:relative;
-  margin-top: 2%;
-  left:30%;
+
+.name__noitfication {
   font-family: Century Gothic;
 }
 
-.bar__menu{
-  width:100%;
-  position:relative;
-  top:0px;
+.text__notification {
+  font-family: Century Gothic;
+}
+
+.inputmessage {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #727272;
+  position: relative;
+  margin-top: 2%;
+  left: 30%;
+}
+
+.sendMessage {
+  width: 100px;
+  height: 44px;
+  border: 1px solid #727272;
+  position: relative;
+  margin-top: 2%;
+  left: 30%;
+  font-family: Century Gothic;
+}
+
+.bar__menu {
+  width: 100%;
+  position: relative;
+  top: 0px;
   z-index: 3;
-  
+
   border-top: 1px solid #333;
   border-bottom: 1px solid #333;
-  height:50px;
+  height: 50px;
   background-color: rgb(255, 255, 255);
 }
-.bar__btn{
-  position:relative;
-  width:100px;
-  height:100%;
-  left:30%;
+
+.bar__btn {
+  position: relative;
+  width: 100px;
+  height: 100%;
+  left: 30%;
   z-index: 3;
-  color:#606060;
+  color: #606060;
   margin: 0px;
-  border:none;
+  border: none;
   background-color: rgb(255, 255, 255);
   font-size: 100%;
   text-align: center;
   font-family: Century Gothic;
 }
-.genre__active{
+
+.genre__active {
   background-color: #ebebeb;
   border-radius: 10px;
-  color:rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   transition: all 0.5s ease;
 }
-.year__active{
+
+.year__active {
   background-color: #ebebeb;
   border-radius: 10px;
-  color:rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   transition: all 0.6s ease;
 }
-.country__active{
+
+.country__active {
   background-color: #ebebeb;
   border-radius: 10px;
-  color:rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   transition: all 0.6s ease;
 }
 
@@ -1898,6 +1927,7 @@ form .Btn button:hover {
 #side-checkbox {
   display: none;
 }
+
 .side-panel {
   position: fixed;
   z-index: 999999;
@@ -1905,13 +1935,14 @@ form .Btn button:hover {
   font-family: Century Gothic;
   left: -360px;
   background-color: rgb(40, 41, 49);
-  transition: all 0.5s;   
+  transition: all 0.5s;
   width: 320px;
   height: 100vh;
-  box-shadow: 10px 0 20px rgba(0,0,0,0.4);
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
   color: #FFF;
   padding: 10px 5px;
 }
+
 .side-title {
   font-size: 20px;
   padding-bottom: 10px;
@@ -1920,17 +1951,21 @@ form .Btn button:hover {
   text-align: center;
   border-bottom: 2px solid #BFE2FF;
 }
+
 /* Оформление кнопки на странице */
 .side-button-1-wr {
-  text-align: center; /* Контейнер для кнопки, чтобы было удобнее ее разместить */
+  text-align: center;
+  /* Контейнер для кнопки, чтобы было удобнее ее разместить */
 }
+
 .side-button-1 {
   display: inline-block;
 }
+
 .side-button-1 .side-b {
   margin: 10px;
-  top:8%;
-  left:0%;
+  top: 8%;
+  left: 0%;
   text-decoration: none;
   position: fixed;
   z-index: 9;
@@ -1940,17 +1975,19 @@ form .Btn button:hover {
   border-radius: 10px;
   font-family: Century Gothic;
   color: #FFF;
-  text-transform: uppercase; 
- 
+  text-transform: uppercase;
+
   background-color: rgb(45, 45, 45);
-  cursor: pointer; 
-  
+  cursor: pointer;
+
 }
+
 .side-button-1 .side-b:hover,
 .side-button-1 .side-b:active,
 .side-button-1 .side-b:focus {
   color: #FFF;
 }
+
 .side-button-1 .side-b:after,
 .side-button-1 .side-b:before {
   position: absolute;
@@ -1965,25 +2002,31 @@ form .Btn button:hover {
 .side-button-1 .side-b:before {
   top: -6px;
 }
+
 .side-button-1 .side-b:hover:after,
 .side-button-1 .side-b:hover:before {
   width: 100%;
   left: 0;
 }
+
 /* Переключатели кнопки 1 */
 .side-button-1 .side-close {
-  
+
   display: none;
 }
-#side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-open {
+
+#side-checkbox:checked+.side-panel+.side-button-1-wr .side-button-1 .side-open {
   display: none;
 }
-#side-checkbox:checked + .side-panel + .side-button-1-wr .side-button-1 .side-close {
+
+#side-checkbox:checked+.side-panel+.side-button-1-wr .side-button-1 .side-close {
   display: block;
 }
-#side-checkbox:checked + .side-panel {
+
+#side-checkbox:checked+.side-panel {
   left: 0;
 }
+
 /* Оформление кнопки на панеле */
 .side-button-2 {
   font-size: 30px;
@@ -1994,25 +2037,50 @@ form .Btn button:hover {
   right: 8px;
   cursor: pointer;
   transform: rotate(45deg);
-  color: #BFE2FF;    
-  transition: all 280ms ease-in-out;    
+  color: #BFE2FF;
+  transition: all 280ms ease-in-out;
 }
+
 .side-button-2:hover {
-  transform: rotate(45deg) scale(1.1);    
+  transform: rotate(45deg) scale(1.1);
   color: #FFF;
 }
-.subscribe{
+
+.subscribe {
   background-color: rgb(255, 31, 31);
-  border:none;
+  border: none;
   color: white;
   padding: 10px;
-  position:fixed;  
+  position: fixed;
   border-radius: 10px;
-  left:13%;
-  top:10%;
+  left: 13%;
+  top: 10%;
   z-index: 6;
   font-family: century Gothic;
 }
-a{
+.sub__name{
+  position:relative;
+  
+  text-align: center;
+  margin:10px;
+  font-weight: 900;
+  font-family: Century Gothic;
+}
+.sub__date{
+  font-size: 40px;
+  position:relative;
+  
+  color: #868eff;
+  font-weight: 900;
+  text-align: center;
+  font-family: Century Gothic;
+}
+.sub__information{
+  position:relative;
+ padding: 100px;
+  border: 3px solid black;
+  top:200px;
+}
+a {
   text-decoration: none;
 }
