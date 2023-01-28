@@ -183,6 +183,7 @@ hr {
   /* flex-wrap: wrap; */
 }
 
+
 .content {
   flex-grow: 1;
   flex: 1 1 auto;
@@ -198,6 +199,19 @@ hr {
   flex-grow: 1;
   flex: 1 1 auto;
   width: 100%;
+
+}
+.content5 {
+  flex-grow: 1;
+  flex: 1 1 auto;
+  width: 100%;
+  width:70%;
+  position:relative;
+  left : 15%;
+  height:80%;
+  
+  top:-5%;
+  background-color: rgb(223, 223, 223);
 
 }
 
@@ -988,7 +1002,7 @@ form .Btn button:hover {
   transition-duration: 0.3s;
   transition-timing-function: ease;
   transition-delay: 0s;
-  background-color: #f4f4f4;
+  background-color: #f6f6f6;
   position: relative;
   top: 0px;
   border-bottom: 1px solid rgb(187, 187, 187);
@@ -1144,7 +1158,7 @@ form .Btn button:hover {
   font-family: Century Gothic;
   left: 380px;
   position: absolute;
-  top: 100px;
+  top: 12%;
 }
 
 .description__image {
@@ -1156,8 +1170,8 @@ form .Btn button:hover {
   left: 5px;
   margin: 10px;
   border-radius: 15px 3px 15px 3px;
-  border: solid 4px rgb(94, 94, 94);
-  top: 5px;
+  
+  top:0%;
 }
 
 .description__genre {
@@ -1171,14 +1185,13 @@ form .Btn button:hover {
 
 .description__name {
   position: absolute;
-  float: left;
-  left: 500px;
-  font-size: 60px;
-  top: -30px;
+  font-size: 360%;
+  
   font-weight: 500px;
-  ;
+  bottom:87%;
+  left:40%;
   font-family: Century Gothic;
-  color: black;
+  color: rgb(56, 56, 56);
 }
 
 .description__actor {
@@ -1256,6 +1269,16 @@ form .Btn button:hover {
   float: left;
   left: 200px;
 }
+.textVoises {
+  color: rgb(71, 71, 71);
+  width: 1000px;
+  margin: 0px;
+  font-weight: bold;
+  /* position: relative; */
+  position: absolute;
+  float: left;
+  left: 120%;
+}
 
 .description__country {
   position: absolute;
@@ -1266,37 +1289,66 @@ form .Btn button:hover {
   font-family: Century Gothic;
 }
 
-
+.video{
+  position:relative;
+  left:20%;
+  top:15%;
+}
 .slider {
-  width: 400px;
-  height: 250px;
-  background-color: #333;
+  
+  width:40%;
+  height:30%;
   position: absolute;
   bottom: 40px;
   left: 25%;
 }
 
 .averange {
-  position: absolute;
+  position: relative;
   left: 20px;
-  top: 420px;
+  top: 45%;
+  width:300px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: rgb(222, 222, 222);
   font-size: 15px;
   color: black;
-  font-family: Century Gothic
+  
+  font-family: Century Gothic;
+  border:3px solid #dedede;
     /* font-size: 80px; */
+}
+.rate__name{
+  position:relative;
+  top:25%;
+  left:10%;
+}
+.rate__count{
+  width: 80px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #73a32f;
+  border-radius: 10px;
+  position:relative;
+  top:3%;
+ 
+  float:right;
+  
+  
 }
 
 .averangeText {
-  font-size: 80px;
-  color: #333;
-
+  font-size: 356%;
+  color: rgb(255, 255, 255);
+  
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .voices {
   position: absolute;
   left: 20px;
-  top: 520px;
+  top: 62%;
   font-size: 15px;
   color: black;
   font-family: Century Gothic;
@@ -1335,7 +1387,6 @@ form .Btn button:hover {
   z-index: 1;
   font-family: Century Gothic;
 }
-
 .search__films__button {
   position: absolute;
   right: 32%;
@@ -2047,20 +2098,50 @@ form .Btn button:hover {
 }
 
 .subscribe {
-  background-color: rgb(255, 31, 31);
+  background-color: rgb(251, 60, 60);
   border: none;
   color: white;
   padding: 10px;
   position: fixed;
   border-radius: 10px;
-  left: 13%;
-  top: 10%;
-  z-index: 6;
+  top:1%;
+ right:10%;
+ box-shadow: 4px 4px 8px 0px rgb(255, 99, 85);
+  z-index: 7;
+  font-size: 20px;;
+  font-family: century Gothic;
+}
+.admin__subscribe {
+  background-color: rgb(251, 60, 60);
+  border: none;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  border-radius: 10px;
+  top:1%;
+ right:27%;
+ box-shadow: 4px 4px 8px 0px rgb(255, 99, 85);
+  z-index: 7;
+  font-size: 20px;;
+  font-family: century Gothic;
+}
+.users__subscribe {
+  background-color: rgb(251, 60, 60);
+  border: none;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  border-radius: 10px;
+  top:1%;
+ right:18%;
+ box-shadow: 4px 4px 8px 0px rgb(255, 99, 85);
+  z-index: 7;
+  font-size: 20px;;
   font-family: century Gothic;
 }
 .sub__name{
   position:relative;
-  
+  top:30px;
   text-align: center;
   margin:10px;
   font-weight: 900;
@@ -2069,17 +2150,55 @@ form .Btn button:hover {
 .sub__date{
   font-size: 40px;
   position:relative;
-  
-  color: #868eff;
+  top:50px;
+  color: #767fff;
   font-weight: 900;
   text-align: center;
   font-family: Century Gothic;
 }
+.sub__button{
+  width:300px;
+  height:70px;
+  border:none;
+  position:relative;
+  left:40%;
+top:100px;
+  background-color: rgb(255, 59, 59);
+  border-radius: 15px;
+  color:white;
+  font-family: Century Gothic;
+  font-size: 23px;
+  box-shadow: 4px 4px 8px 0px rgb(255, 99, 85);
+}
 .sub__information{
   position:relative;
- padding: 100px;
+
+  height:450px;
   border: 3px solid black;
-  top:200px;
+  top:100px ;
+  background-image: url(/img/collage.jpg);
+  overflow: hidden;
+}
+.watch__by__subscribe{
+  background-color: rgb(253, 54, 54);
+  color:white;
+  border:none;
+  position:relative;
+  font-family: Century Gothic;
+  padding:10px;
+  top:50%;
+  margin-left: 15px;
+  
+}
+.watch__for__Free{
+  background-color: rgb(81, 81, 81);
+  color:white;
+  border:none;
+  position:relative;
+  font-family: Century Gothic;
+  padding:10px;
+  top:50%;
+  margin-left: 15px;
 }
 a {
   text-decoration: none;

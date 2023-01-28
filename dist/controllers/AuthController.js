@@ -36,9 +36,11 @@ class AuthController {
                 yield prisma.users.create({
                     data: {
                         name: name,
-                        password: password
+                        password: password,
+                        status: 'Free'
                     }
                 });
+                req.session.subscription = 'Free';
                 req.session.name = name;
                 req.session.password = password;
                 if (req.session.name == "Admin") {
@@ -76,7 +78,7 @@ class AuthController {
             const users = yield prisma.users.findMany({
                 where: {
                     name,
-                    password
+                    password,
                 }
             });
             if (users[0] != undefined) {
@@ -92,6 +94,17 @@ class AuthController {
                 if (req.session.name != "" || req.session.password != "") {
                     (0, addLog_1.addLog)(` ${req.session.name} вошел в аккаунт`);
                     console.log(req.session.name);
+                    const user = yield prisma.users.findMany({
+                        where: {
+                            name: String(req.session.name),
+                        }
+                    });
+                    if (user[0].status == 'Subscription') {
+                        req.session.subscription = 'Subscription';
+                    }
+                    else {
+                        req.session.subscription = 'Free';
+                    }
                     res.redirect('/home');
                 }
                 else {

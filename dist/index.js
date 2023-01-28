@@ -64,6 +64,12 @@ app.get("/from/years/:date", (req, res) => {
 app.get("/years", (req, res) => {
     categoriesController.years(req, res);
 });
+app.get("/bySubscribe/:id", (req, res) => {
+    subscribeController.BySubscribe(req, res);
+});
+app.get("/forfree/:id", (req, res) => {
+    subscribeController.forFree(req, res);
+});
 app.get("/country", (req, res) => {
     categoriesController.Country(req, res);
 });
@@ -105,6 +111,12 @@ app.get("/add", (req, res) => {
 });
 app.post("/AddItems", (req, res) => {
     itemsController.AddItems(req, res);
+});
+app.post("/arrange", (req, res) => {
+    subscribeController.arrange(req, res);
+});
+app.post("/disarrange", (req, res) => {
+    subscribeController.disarrange(req, res);
 });
 app.post("/searchAllFilms", (req, res) => {
     itemsController.homeSearch(req, res);

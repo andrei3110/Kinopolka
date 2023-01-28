@@ -91,7 +91,7 @@ class ItemsController {
     }
     AddItems(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { name, image, description, producer, actor, screenwriter, operator, regicer, year, type, age, country, status, genre } = req.body;
+            const { name, image, description, producer, actor, screenwriter, operator, regicer, year, type, age, country, status, genre, video, treller } = req.body;
             const items = yield prisma.items.findMany({
                 where: {
                     name: name,
@@ -107,7 +107,9 @@ class ItemsController {
                     age: age,
                     genre: genre,
                     year: Number(year),
-                    status: status
+                    status: status,
+                    video: video,
+                    treller: treller
                 }
             });
             let genres = yield prisma.genres.findMany({});
@@ -132,7 +134,9 @@ class ItemsController {
                     age: age,
                     genre: all,
                     year: Number(year),
-                    status: status
+                    status: status,
+                    video: video,
+                    treller: treller
                 }
             });
             req.session.status = status;

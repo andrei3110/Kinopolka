@@ -16,6 +16,7 @@ export class AuthController {
                 name
             }
         });
+         
         if (users[0] != undefined) {
             req.session.auth = false;
             res.redirect('/render/registration')
@@ -27,9 +28,11 @@ export class AuthController {
             await prisma.users.create({
                 data: {
                     name: name,
-                    password: password
+                    password: password,
+                    status: 'Free'
                 }
             });
+            req.session.subscription = 'Free'
             req.session.name = name;
             req.session.password = password; 
             if(req.session.name == "Admin"){
@@ -44,7 +47,9 @@ export class AuthController {
             }else{
                 res.redirect('/render/registration')
                 req.session.auth = false;
-            }
+            }           
+
+            
         }
     }
     async renderRegistration(req: Request, res: Response) {
@@ -62,7 +67,8 @@ export class AuthController {
         const users = await prisma.users.findMany({
             where: {
                 name,
-                password
+                password,
+                
             }
         });
         if (users[0] != undefined) {
@@ -78,6 +84,17 @@ export class AuthController {
             if(req.session.name != "" || req.session.password != ""){
             addLog(` ${req.session.name} вошел в аккаунт`)
             console.log(req.session.name)
+            const user = await prisma.users.findMany({
+                where: {
+                    name: String(req.session.name),
+                }       
+            });
+    
+            if(user[0].status == 'Subscription'){
+                req.session.subscription = 'Subscription'
+            }else{
+                req.session.subscription = 'Free'
+            }
             res.redirect('/home');
             }else{
                 req.session.auth = false;
@@ -89,6 +106,8 @@ export class AuthController {
             res.redirect('/render/login')
             req.session.name = undefined
         };
+
+       
         
 
     }

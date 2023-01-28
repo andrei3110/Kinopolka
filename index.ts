@@ -38,7 +38,10 @@ declare module "express-session" {
     deleteComment:boolean,
     test:Number,
     active: String,
-    status : String
+    status : String,// статус фильма 
+    subscription:String, // статус пользователя 
+    interStatus: String // промежуточный статус пользователя
+
 
   }
 };
@@ -84,6 +87,12 @@ app.get("/from/years/:date", (req: Request, res: Response) => {
 app.get("/years", (req: Request, res: Response) => {
   categoriesController.years(req, res);
 });
+app.get("/bySubscribe/:id", (req: Request, res: Response) => {
+  subscribeController.BySubscribe(req, res);
+});
+app.get("/forfree/:id", (req: Request, res: Response) => {
+  subscribeController.forFree(req, res);
+});
 app.get("/country", (req: Request, res: Response) => {
   categoriesController.Country(req, res);
 });
@@ -125,6 +134,12 @@ app.get("/add", (req: Request, res: Response) => {
 });
 app.post("/AddItems", (req: Request, res: Response) => {
   itemsController.AddItems(req, res);
+});
+app.post("/arrange", (req: Request, res: Response) => {
+  subscribeController.arrange(req, res);
+});
+app.post("/disarrange", (req: Request, res: Response) => {
+  subscribeController.disarrange(req, res);
 });
 app.post("/searchAllFilms", (req: Request, res: Response) => {
   itemsController.homeSearch(req, res);

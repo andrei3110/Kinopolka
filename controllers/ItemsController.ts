@@ -76,7 +76,7 @@ export class ItemsController {
         });
     }
     async AddItems(req: Request, res: Response) {
-        const { name, image, description, producer, actor, screenwriter, operator, regicer,year,type, age, country,status, genre } = req.body;
+        const { name, image, description, producer, actor, screenwriter, operator, regicer,year,type, age, country,status, genre, video, treller } = req.body;
         const items = await prisma.items.findMany({
             where: {
 
@@ -93,7 +93,9 @@ export class ItemsController {
                 age: age,
                 genre: genre,
                 year: Number(year),
-                status : status
+                status : status,
+                video: video,
+                treller:treller
 
             }
         });
@@ -122,7 +124,9 @@ export class ItemsController {
                 age: age,
                 genre: all,
                 year: Number(year),
-                status : status
+                status : status,
+                video:video,
+                treller:treller
             }
         });
         req.session.status = status;
@@ -297,7 +301,6 @@ export class ItemsController {
                 country: country,
                 age: age,
                 genre: genre,
-                
                 Username:String(req.session.name)
             }
         });

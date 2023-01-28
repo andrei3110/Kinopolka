@@ -19,7 +19,7 @@ export class CommentsController {
         await prisma.comments.deleteMany({
             where: {
                 id: Number(commentId),
-                user__name:String(req.session.name) 
+                user__name:String(req.session.name)
             }
         });
         

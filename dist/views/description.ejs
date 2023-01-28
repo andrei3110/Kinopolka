@@ -59,25 +59,33 @@
                         </div>
                         
                         <div class="averange" id="averange">
-                            рейтинг:<span class="averangeText" id="averangeText">
+                            <font size="5" class="rate__name">рейтинг:</font>
                                
-                                <% if (number ==NaN) { %>
-                                    0
-                                <% } else { %>
-                                    <%= number %>
-                                <% } %>
-                            </span>
-                        </div>  
-                        <div class="voices" id="voices">
-                            всего голосов:<span class="textViews" id="textViews">
+                                    <div class="rate__count">
+                                        <span class="averangeText" id="averangeText">
+                                           <%= number %> 
+                                        </span>
+                                        
+                                    </div>
+                                
+                            <div class="voices" id="voices">
+                            всего голосов:<span class="textVoises" id="textViews">
                                 <%= voices %>
                             </span></div>
+                        </div>  
+                        
 
+                            <% if (items.status == "бесплатно") { %>
+                                <a href="/forFree/<%= items.id %>"><button class="watch__for__Free">Смотреть фильм бесплатно</button></a>
+                                <% } else { %>
+                                <a href="/bySubscribe/<%= items.id %>"><button class="watch__by__subscribe">Смотреть фильм по подписке</button></a>
+                                <% } %>
 
                         <div class="slider" id="slider">
-
+                            <iframe width="90%" class="video" height="80%" src=" <%= items.treller %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            
                         </div>
-                        <hr>
+                        
                     </div>
 
 
