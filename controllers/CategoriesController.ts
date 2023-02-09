@@ -1,239 +1,275 @@
 import { Request, Response } from 'express';
-import { items, users, bascet,genres, years,comments,categories,cartoonGenres,country, PrismaClient } from '@prisma/client';
+import { items, users, bascet, genres, years, comments, categories, cartoonGenres, country, PrismaClient } from '@prisma/client';
 import { validateHeaderValue } from 'http';
 // import "./authorizationcontroller"
 const prisma: PrismaClient = new PrismaClient();
 
 export class CategoriesController {
     async index(req: Request, res: Response) {
-         const {id} = req.params;
-        
+        const { id } = req.params;
+
         let categories = await prisma.categories.findMany({
             where: {
-               id:Number(id),
+                id: Number(id),
             }
         });
         let items = await prisma.items.findMany({
             where: {
-               type:Number(id),
+                type: Number(id),
             }
         });
         req.session.category = Number(id);
-        if(req.session.category == 1){
-           
+        if (req.session.category == 1) {
+
             req.session.active = "genre"
-        } else if(req.session.category==2){
+        } else if (req.session.category == 2) {
             req.session.active = "genre"
-            
-        } else if(req.session.category == 3){
+
+        } else if (req.session.category == 3) {
             req.session.active = "genre"
-           
+
         }
-       
+
         const genres = await prisma.genres.findMany({})
         const cartoons = await prisma.cartoonGenres.findMany({
         })
 
         res.render('types/index', {
             auth: req.session.auth,
-            active:req.session.active,
+            active: req.session.active,
             admin: req.session.admin,
             status: req.session.status,
             dark__light: req.session.dark__light,
             category: req.session.category,
             'items': items,
             'categories': categories,
-            'genres' : genres,
-            'cartoonGenres' : cartoons
+            'genres': genres,
+            'cartoonGenres': cartoons
         });
     }
     async moves(req: Request, res: Response) {
-        const {name} = req.params;
-       const genres = await prisma.genres.findMany({
-        where: {
-           name,
-        }
-    });
-      const items = await prisma.items.findMany({
-     where: {
-         genre: {
-             contains: name 
-         },
-         type: Number(req.session.category)
-
-     }
-
- });
- let k = 0;
-    for(let i = 0;i< items.length; i++){
-        k= k+1
-    }
-       res.render('types/moves', {
-           auth: req.session.auth,
-           active:req.session.active,
-           status: req.session.status,
-           admin: req.session.admin,
-           dark__light: req.session.dark__light,
-           category: req.session.category,
-           'items': items,
-           'genres': genres,
-       });
-   }
-   async cartoons(req: Request, res: Response) {
-    const {name} = req.params;
-    
-   const genres = await prisma.cartoonGenres.findMany({
-    where: {
-       name
-    }
-});
-  const items = await prisma.items.findMany({
- where: {
-     genre: {
-         contains: name 
-     },
-     type: Number(req.session.category)
-
- }
-});
-   res.render('types/moves', {
-       auth: req.session.auth,
-       status: req.session.status,
-       admin: req.session.admin,
-       active:req.session.active,
-       dark__light: req.session.dark__light,
-       category: req.session.category,
-       'items': items,
-       'cartoonGenres': genres,
-   });
-}
-
-async searchFilms(req: Request, res: Response) {
-    const { name } = req.body;
-    req.session.searchMove = false
-    const items = await prisma.items.findMany({
-        where: {
-            genre:{
-                contains: name
+        const { name } = req.params;
+        const genres = await prisma.genres.findMany({
+            where: {
+                name,
             }
+        });
+        const count = await prisma.items.count({
+            where:{
+                genre: {
+                    contains: name
+                },
+                type: Number(req.session.category)
+            }
+        });
+        req.session.count = Math.ceil(count / 4)
+        
+        console.log(req.session.count)
+        let itemsPerPage =4
+        let page = 0;
+        const items = await prisma.items.findMany({
+            skip:page,
+            take:itemsPerPage,
+            where: {
+                genre: {
+                    contains: name
+                },
+                type: Number(req.session.category)
+
+            }
+        
+        });
+        
+        let k = 0;
+        for (let i = 0; i < items.length; i++) {
+            k = k + 1
         }
-    });
-    if(items[0] != undefined){
-        req.session.searchMove = true
-    }else{
-        req.session.searchMove = false
+        res.render('types/moves', {
+            auth: req.session.auth,
+            active: req.session.active,
+            status: req.session.status,
+            admin: req.session.admin,
+            dark__light: req.session.dark__light,
+            category: req.session.category,
+            count: req.session.count,
+            'items': items,
+            'genres': genres,
+        });
+      
     }
-    
-    console.log(req.session.searchMove)
-    res.render('searchHome',{
-        'items': items,
-        searchMove:req.session.searchMove,
-        auth: req.session.auth,
-        status: req.session.status,
-        active:req.session.active,
-        admin: req.session.admin,
-        dark__light: req.session.dark__light,
-        mark: req.session.mark
-    })
-}
-
-async years(req: Request, res: Response) {
-    const {id} = req.params;
-    req.session.active = "year";
-   const years = await prisma.years.findMany({
-       
-   })
-   res.render('types/years', {
-       auth: req.session.auth,
-       active:req.session.active,
-       status: req.session.status,
-       admin: req.session.admin,
-       dark__light: req.session.dark__light,
-       category: req.session.category,
-       'years':years
-   });
-}
-async ByYear(req: Request, res: Response) {
-    const {date} = req.params;
-    
-  const items = await prisma.items.findMany({
- where: {
-     year:Number(date),
-     type: Number(req.session.category)
-
- }
- 
-});
-   res.render('types/moves', {
-       auth: req.session.auth,
-       status: req.session.status,
-       active:req.session.active,
-       admin: req.session.admin,
-       dark__light: req.session.dark__light,
-       category: req.session.category,
-       'items': items,
-       
-   });
-}
-async ByGenre(req: Request, res: Response) {
-    const {id} = req.params;
-    req.session.active = "genre";
-   const genres = await prisma.genres.findMany({
-       
-   })
-   const cartoons = await prisma.cartoonGenres.findMany({
-       
-   })
-   res.render('types/index', {
-       auth: req.session.auth,
-       status: req.session.status,
-       admin: req.session.admin,
-       active:req.session.active,
-       dark__light: req.session.dark__light,
-       category: req.session.category,
-       
-       'genres' : genres,
-       'cartoonGenres' : cartoons
-   });
-}
-
-async Country(req: Request, res: Response) {
-    const {name} = req.params;
-    req.session.active = "country";
-  const country = await prisma.country.findMany({
-
-});
-   res.render('types/country', {
-       auth: req.session.auth,
-       active:req.session.active,
-       status: req.session.status,
-       admin: req.session.admin,
-       dark__light: req.session.dark__light,
-       category: req.session.category,
-       'country': country,  
-   });
-}
-async ByCountry(req: Request, res: Response) {
-    const {name} = req.params;
-
-    const items = await prisma.items.findMany({
-        where: {
-            country: {
-                contains: name 
-            },
+    async pages(req: Request, res: Response) {
+        for(let i = 0 ;i < Number(req.session.count); i ++){
+            
         }
-       });
-   res.render('types/moves', {
-       auth: req.session.auth,
-       active:req.session.active,
-       admin: req.session.admin,
-       status: req.session.status,
-       dark__light: req.session.dark__light,
-       category: req.session.category,
-       'items': items,
        
-   });
-}
+        
+        
+        res.render('types/moves', {
+            auth: req.session.auth,
+            status: req.session.status,
+            admin: req.session.admin,
+            count: req.session.count,
+            active: req.session.active,
+            dark__light: req.session.dark__light,
+            category: req.session.category,
+            
+        });
+    }
+    async cartoons(req: Request, res: Response) {
+        const { name } = req.params;
+
+        const genres = await prisma.cartoonGenres.findMany({
+            where: {
+                name
+            }
+        });
+        const items = await prisma.items.findMany({
+            where: {
+                genre: {
+                    contains: name
+                },
+                type: Number(req.session.category)
+
+            }
+        });
+        res.render('types/moves', {
+            auth: req.session.auth,
+            status: req.session.status,
+            admin: req.session.admin,
+            active: req.session.active,
+            dark__light: req.session.dark__light,
+            category: req.session.category,
+            'items': items,
+            'cartoonGenres': genres,
+        });
+    }
+
+    async searchFilms(req: Request, res: Response) {
+        const { name } = req.body;
+        req.session.searchMove = false
+        const items = await prisma.items.findMany({
+            where: {
+                genre: {
+                    contains: name
+                }
+            }
+        });
+        if (items[0] != undefined) {
+            req.session.searchMove = true
+        } else {
+            req.session.searchMove = false
+        }
+
+        console.log(req.session.searchMove)
+        res.render('searchHome', {
+            'items': items,
+            searchMove: req.session.searchMove,
+            auth: req.session.auth,
+            status: req.session.status,
+            active: req.session.active,
+            admin: req.session.admin,
+            dark__light: req.session.dark__light,
+            mark: req.session.mark
+        })
+    }
+
+    async years(req: Request, res: Response) {
+        const { id } = req.params;
+        req.session.active = "year";
+        const years = await prisma.years.findMany({
+
+        })
+        res.render('types/years', {
+            auth: req.session.auth,
+            active: req.session.active,
+            status: req.session.status,
+            admin: req.session.admin,
+            dark__light: req.session.dark__light,
+            category: req.session.category,
+            'years': years
+        });
+    }
+    async ByYear(req: Request, res: Response) {
+        const { date } = req.params;
+
+        const items = await prisma.items.findMany({
+            where: {
+                year: Number(date),
+                type: Number(req.session.category)
+
+            }
+
+        });
+        res.render('types/moves', {
+            auth: req.session.auth,
+            status: req.session.status,
+            active: req.session.active,
+            admin: req.session.admin,
+            dark__light: req.session.dark__light,
+            category: req.session.category,
+            'items': items,
+
+        });
+    }
+    async ByGenre(req: Request, res: Response) {
+        const { id } = req.params;
+        req.session.active = "genre";
+        const genres = await prisma.genres.findMany({
+
+        })
+        const cartoons = await prisma.cartoonGenres.findMany({
+
+        })
+        res.render('types/index', {
+            auth: req.session.auth,
+            status: req.session.status,
+            admin: req.session.admin,
+            active: req.session.active,
+            dark__light: req.session.dark__light,
+            category: req.session.category,
+
+            'genres': genres,
+            'cartoonGenres': cartoons
+        });
+    }
+
+    async Country(req: Request, res: Response) {
+        const { name } = req.params;
+        req.session.active = "country";
+        const country = await prisma.country.findMany({
+
+        });
+        res.render('types/country', {
+            auth: req.session.auth,
+            active: req.session.active,
+            status: req.session.status,
+            admin: req.session.admin,
+            dark__light: req.session.dark__light,
+            category: req.session.category,
+            'country': country,
+        });
+    }
+    async ByCountry(req: Request, res: Response) {
+        const { name } = req.params;
+
+        const items = await prisma.items.findMany({
+            where: {
+                country: {
+                    contains: name
+                },
+            }
+        });
+        res.render('types/moves', {
+            auth: req.session.auth,
+            active: req.session.active,
+            admin: req.session.admin,
+            status: req.session.status,
+            dark__light: req.session.dark__light,
+            category: req.session.category,
+            'items': items,
+
+        });
+    }
 }
 
 

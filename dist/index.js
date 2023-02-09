@@ -55,6 +55,9 @@ app.get("/byGenre", (req, res) => {
 app.get("/from/moves/:name", (req, res) => {
     categoriesController.moves(req, res);
 });
+app.get("/moves", (req, res) => {
+    categoriesController.moves(req, res);
+});
 app.get("/from/country/:name", (req, res) => {
     categoriesController.ByCountry(req, res);
 });

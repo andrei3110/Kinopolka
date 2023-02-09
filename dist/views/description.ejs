@@ -59,15 +59,44 @@
                         </div>
                         
                         <div class="averange" id="averange">
+                            <% if (number >= 4.5) { %>
                             <font size="5" class="rate__name">рейтинг:</font>
                                
-                                    <div class="rate__count">
+                                    <div class="rate__count five">
+                                        <span class="averangeText" id="averangeText">
+                                            
+                                        </span>
+                                        
+                                    </div>
+
+                            <% } else if(number >= 3.5) { %>   
+                                <font size="5" class="rate__name">рейтинг:</font>
+                               
+                                    <div class="rate__count four">
                                         <span class="averangeText" id="averangeText">
                                            <%= number %> 
                                         </span>
                                         
                                     </div>
-                                
+                            <% } else if( number >= 2 ) { %> 
+                                <font size="5" class="rate__name">рейтинг:</font>
+                               
+                                <div class="rate__count three">
+                                    <span class="averangeText" id="averangeText">
+                                       <%= number %> 
+                                    </span>
+                                    
+                                </div>
+                            <% } else { %>
+                                <font size="5" class="rate__name">рейтинг:</font>
+                               
+                                <div class="rate__count two">
+                                    <span class="averangeText" id="averangeText">
+                                       <%= number %> 
+                                    </span>
+                                    
+                                </div>
+                            <% } %>
                             <div class="voices" id="voices">
                             всего голосов:<span class="textVoises" id="textViews">
                                 <%= voices %>

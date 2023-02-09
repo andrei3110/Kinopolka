@@ -37,6 +37,7 @@ declare module "express-session" {
     dark__light:boolean,
     deleteComment:boolean,
     test:Number,
+    count:Number,
     active: String,
     status : String,// статус фильма 
     subscription:String, // статус пользователя 
@@ -76,6 +77,9 @@ app.get("/byGenre", (req: Request, res: Response) => {
   categoriesController.ByGenre(req, res);
 });
 app.get("/from/moves/:name", (req: Request, res: Response) => {
+  categoriesController.moves(req, res);
+});
+app.get("/moves", (req: Request, res: Response) => {
   categoriesController.moves(req, res);
 });
 app.get("/from/country/:name", (req: Request, res: Response) => {

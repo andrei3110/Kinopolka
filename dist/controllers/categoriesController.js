@@ -61,7 +61,21 @@ class CategoriesController {
                     name,
                 }
             });
+            const count = yield prisma.items.count({
+                where: {
+                    genre: {
+                        contains: name
+                    },
+                    type: Number(req.session.category)
+                }
+            });
+            req.session.count = Math.ceil(count / 4);
+            console.log(req.session.count);
+            let itemsPerPage = 4;
+            let page = 0;
             const items = yield prisma.items.findMany({
+                skip: page,
+                take: itemsPerPage,
                 where: {
                     genre: {
                         contains: name
@@ -80,8 +94,24 @@ class CategoriesController {
                 admin: req.session.admin,
                 dark__light: req.session.dark__light,
                 category: req.session.category,
+                count: req.session.count,
                 'items': items,
                 'genres': genres,
+            });
+        });
+    }
+    pages(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            for (let i = 0; i < Number(req.session.count); i++) {
+            }
+            res.render('types/moves', {
+                auth: req.session.auth,
+                status: req.session.status,
+                admin: req.session.admin,
+                count: req.session.count,
+                active: req.session.active,
+                dark__light: req.session.dark__light,
+                category: req.session.category,
             });
         });
     }

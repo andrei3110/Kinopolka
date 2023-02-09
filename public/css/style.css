@@ -1179,7 +1179,7 @@ form .Btn button:hover {
   left: 400px;
   top: 200px;
   font-size: 15px;
-  color: black;
+  color: rgb(87, 87, 87);
   font-family: Century Gothic;
 }
 
@@ -1191,7 +1191,7 @@ form .Btn button:hover {
   bottom:87%;
   left:40%;
   font-family: Century Gothic;
-  color: rgb(56, 56, 56);
+  color: rgb(74, 74, 74);
 }
 
 .description__actor {
@@ -1199,7 +1199,7 @@ form .Btn button:hover {
   left: 400px;
   top: 230px;
   font-size: 15px;
-  color: black;
+  color: rgb(87, 87, 87);
   font-family: Century Gothic;
 }
 
@@ -1208,7 +1208,7 @@ form .Btn button:hover {
   left: 400px;
   top: 260px;
   font-size: 15px;
-  color: black;
+  color: rgb(87, 87, 87);
 
   font-family: Century Gothic;
 }
@@ -1218,7 +1218,7 @@ form .Btn button:hover {
   left: 400px;
   top: 290px;
   font-size: 15px;
-  color: black;
+  color: rgb(87, 87, 87);
   font-family: Century Gothic;
 }
 
@@ -1227,7 +1227,7 @@ form .Btn button:hover {
   left: 400px;
   top: 320px;
   font-size: 15px;
-  color: black;
+  color: rgb(87, 87, 87);
   font-family: Century Gothic;
 }
 
@@ -1236,7 +1236,7 @@ form .Btn button:hover {
   left: 400px;
   top: 350px;
   font-size: 15px;
-  color: black;
+  color: rgb(87, 87, 87);
   font-family: Century Gothic;
 }
 
@@ -1245,7 +1245,7 @@ form .Btn button:hover {
   left: 400px;
   top: 380px;
   font-size: 15px;
-  color: black;
+  color: rgb(87, 87, 87);
   font-family: Century Gothic;
 }
 
@@ -1255,12 +1255,12 @@ form .Btn button:hover {
   top: 460px;
   width: 500px;
   font-size: 15px;
-  color: black;
+  color: rgb(87, 87, 87);
   font-family: Century Gothic;
 }
 
 .textViews {
-  color: black;
+  color: rgb(92, 92, 92);
   width: 1000px;
   margin: 0px;
   font-weight: bold;
@@ -1285,7 +1285,7 @@ form .Btn button:hover {
   left: 400px;
   top: 175px;
   font-size: 15px;
-  color: black;
+  color: rgb(87, 87, 87);
   font-family: Century Gothic;
 }
 
@@ -1336,6 +1336,18 @@ form .Btn button:hover {
   float:right;
   
   
+}
+.five{
+  background-color: #73a32f;
+}
+.four{
+  background-color: #a3a12f;
+}
+.three{
+  background-color: #a35b2f;
+}
+.two{
+  background-color: #a33c2f;
 }
 
 .averangeText {
@@ -2027,7 +2039,7 @@ form .Btn button:hover {
   font-family: Century Gothic;
   color: #FFF;
   text-transform: uppercase;
-
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   background-color: rgb(45, 45, 45);
   cursor: pointer;
 

@@ -1,14 +1,14 @@
 <div class="bar__menu">
     <% if (active == "genre"){ %>
-    <a  href="/byGenre"><button class="bar__btn genre__active">Жанры</button></a>
-    <a href="/years"><button class="bar__btn">Годы</button></a>
-    <a href="/country"><button class="bar__btn">Страны</button></a>
+   <button class="bar__btn genre__active"> <a  href="/byGenre">Жанры</a></button>
+   <button class="bar__btn"><a href="/years">Годы</a></button>
+    <a href="/country"><button class="bar__btn"> <a href="/years">Страны</a></button>
     <% } else if (active == "year") { %>
-        <a  href="/byGenre"><button class="bar__btn">Жанры</button></a>
-    <a href="/years"><button class="bar__btn year__active">Годы</button></a>
-    <a href="/country"><button class="bar__btn">Страны</button></a>
+        <button class="bar__btn"><a  href="/byGenre">Жанры</a></button>
+    <button class="bar__btn year__active"><a href="/years">Годы</a></button>
+    <button class="bar__btn"><a href="/country">Страны</a></button>
     <% } else if (active == "country") { %>
-        <a  href="/byGenre"><button class="bar__btn">Жанры</button></a>
+        <button class="bar__btn"><a  href="/byGenre">Жанры</a></button>
     <a href="/years"><button class="bar__btn">Годы</button></a>
     <a href="/country"><button class="bar__btn country__active">Страны</button></a>
     <% } else { %>
