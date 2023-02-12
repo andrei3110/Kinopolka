@@ -1,6 +1,5 @@
 <%- include('particles/header.ejs') %>
-    <div class="wrapper">
-        <div class="content">
+       
             <!-- <%- include('particles/navigation.ejs') %> -->
 
             <%- include('particles/menu.ejs') %>
@@ -16,7 +15,7 @@
         
 
                     </form>
-        </div>
+        
         <div class="searchForGenresBtn">
         <form action="/bovik" method="post"><input type="submit" class="search__of__genre bovik" name="name"
                 value="боевик"></form>
@@ -50,6 +49,66 @@
                 value="исторический"></form>
 
         </div>
+       <div class="hollow2"></div>
+       
+       <div class="popular">Cамые популярные:</div>
+       <div class="hollow"></div>
+        <div class="sliders__pictures">
+                <div class="slider__wrapper">
+                    <div class="slider__item"><img class="slider__image"src="/prevew/fantastic4.jpg"></div>
+                    <div class="slider__item"><img class="slider__image"src="/prevew/hero.webp"></div>
+                    <div class="slider__item"><img class="slider__image"src="/prevew/ghost.webp"></div>
+                    <div class="slider__item"><img class="slider__image"src="/prevew/martian.jpg"></div>
+                    <div class="slider__item"><img class="slider__image"src="/prevew/thor.jpg"></div>
+                    <div class="slider__item"><img class="slider__image"src="/prevew/zombilend.jpg"></div>
+                   
+                </div>
+                <button class="slider__control slider__control--l" id="right"> <i class="fa fa-angle-left fa-5x" aria-hidden="true"></i></button>
+                <button class="slider__control slider__control--r" id="left"><i class="fa fa-angle-right fa-5x" aria-hidden="true"></i></button>
+                
+        </div>
+        <script>
+                let maxWidth = 1280;
+                let itemsCount = 2;
 
+console.log(document.documentElement.clientWidth)
+addEventListener('resize' , () => {
+    if(document.documentElement.clientWidth< 760){
+        document.querySelector(".sliders__pictures").style.width = "450px"
+    }
+})
+
+
+const sliders = document.querySelectorAll(".sliders__pictures")
+sliders.forEach(slider => {
+    let currentIndex = 0;
+    let currentMargin = 0;
+    const sliderWrapper = slider.querySelector(".slider__wrapper")
+    const items = sliderWrapper.querySelectorAll(".slider__item")
+
+    items.forEach(items => {
+        items.style.width = maxWidth / itemsCount + 'px';
+    })
+    sliderWrapper.style.width = maxWidth / itemsCount + items.length + 'px';
+
+    const LeftBtn  = document.querySelector(".slider__control--l")
+    const RightBtn = document.querySelector(".slider__control--r")
+    RightBtn.addEventListener('click', () => {
+        if(currentIndex < 2 ){
+            currentIndex++;
+            currentMargin = currentMargin - 640;
+            sliderWrapper.style.marginLeft = currentMargin + 'px';
+        }
+        
+    })
+    LeftBtn.addEventListener('click', () => {
+        if(currentIndex > 0 ){
+            currentIndex--;
+            currentMargin = currentMargin + 640;
+            sliderWrapper.style.marginLeft = currentMargin + 'px';
+        }
+    })
+})
+
+        </script>
         <%- include('particles/footer.ejs') %>
-    </div>
