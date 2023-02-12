@@ -41,19 +41,22 @@ export class CategoriesController {
             status: req.session.status,
             dark__light: req.session.dark__light,
             category: req.session.category,
+            count: req.session.count,
             'items': items,
             'categories': categories,
             'genres': genres,
             'cartoonGenres': cartoons
         });
     }
-    async moves(req: Request, res: Response) {
+   async moves(req: Request, res: Response) {
         const { name } = req.params;
-        const genres = await prisma.genres.findMany({
+       
+        const genres =  await prisma.genres.findMany({
             where: {
                 name,
             }
         });
+
         const count = await prisma.items.count({
             where:{
                 genre: {
@@ -62,13 +65,19 @@ export class CategoriesController {
                 type: Number(req.session.category)
             }
         });
+        if(count > 0){
+            let n = Math.ceil(count / 4)
         req.session.count = Math.ceil(count / 4)
+
         
-        console.log(req.session.count)
-        let itemsPerPage =4
-        let page = 0;
+        let itemsPerPage = 4
+        
+        let page =Number(req.query.page) 
+        if (!page) page = 1;
+        if (page > n) page = n;
+        let pages = itemsPerPage * (page - 1)
         const items = await prisma.items.findMany({
-            skip:page,
+            skip: pages,
             take:itemsPerPage,
             where: {
                 genre: {
@@ -79,7 +88,7 @@ export class CategoriesController {
             }
         
         });
-        
+        console.log(req.session.category)
         let k = 0;
         for (let i = 0; i < items.length; i++) {
             k = k + 1
@@ -95,25 +104,30 @@ export class CategoriesController {
             'items': items,
             'genres': genres,
         });
-      
-    }
-    async pages(req: Request, res: Response) {
-        for(let i = 0 ;i < Number(req.session.count); i ++){
+        }else{
+            const items = await prisma.items.findMany({
+                where: {
+                    genre: {
+                        contains: name
+                    },
+                    type: Number(req.session.category)
+    
+                }
             
+            });
+            res.render('types/moves', {
+                auth: req.session.auth,
+                active: req.session.active,
+                status: req.session.status,
+                admin: req.session.admin,
+                dark__light: req.session.dark__light,
+                category: req.session.category,
+                count: req.session.count,
+                'items': items,
+                'genres': genres,
+            });
         }
-       
-        
-        
-        res.render('types/moves', {
-            auth: req.session.auth,
-            status: req.session.status,
-            admin: req.session.admin,
-            count: req.session.count,
-            active: req.session.active,
-            dark__light: req.session.dark__light,
-            category: req.session.category,
-            
-        });
+      
     }
     async cartoons(req: Request, res: Response) {
         const { name } = req.params;
@@ -123,25 +137,79 @@ export class CategoriesController {
                 name
             }
         });
-        const items = await prisma.items.findMany({
-            where: {
+        
+        const count = await prisma.items.count({
+            where:{
                 genre: {
                     contains: name
                 },
                 type: Number(req.session.category)
-
             }
         });
-        res.render('types/moves', {
-            auth: req.session.auth,
-            status: req.session.status,
-            admin: req.session.admin,
-            active: req.session.active,
-            dark__light: req.session.dark__light,
-            category: req.session.category,
-            'items': items,
-            'cartoonGenres': genres,
-        });
+        if(count > 0){
+            let n = Math.ceil(count / 4)
+            req.session.count = Math.ceil(count / 4)
+            let itemsPerPage = 4
+            
+            let page =Number(req.query.page) 
+            if (!page) page = 1;
+            if (page > n) page = n;
+            let pages = itemsPerPage * (page - 1)
+         
+    
+            const items = await prisma.items.findMany({
+                skip: pages,
+                take:itemsPerPage,
+                where: {
+                    genre: {
+                        contains: name
+                    },
+                    type: Number(req.session.category)
+    
+                }
+            
+            });
+            console.log(req.session.category)
+            let k = 0;
+            for (let i = 0; i < items.length; i++) {
+                k = k + 1
+            }
+            res.render('types/moves', {
+                auth: req.session.auth,
+                status: req.session.status,
+                admin: req.session.admin,
+                active: req.session.active,
+                count: req.session.count,
+                dark__light: req.session.dark__light,
+                category: req.session.category,
+                'items': items,
+                'cartoonGenres': genres,
+            });
+        }else{
+            const items = await prisma.items.findMany({
+                where: {
+                    genre: {
+                        contains: name
+                    },
+                    type: Number(req.session.category)
+    
+                }
+            
+            });
+            
+            res.render('types/moves', {
+                auth: req.session.auth,
+                status: req.session.status,
+                admin: req.session.admin,
+                active: req.session.active,
+                count: req.session.count,
+                dark__light: req.session.dark__light,
+                category: req.session.category,
+                'items': items,
+                'cartoonGenres': genres,
+            });
+        }
+       
     }
 
     async searchFilms(req: Request, res: Response) {
@@ -166,6 +234,7 @@ export class CategoriesController {
             searchMove: req.session.searchMove,
             auth: req.session.auth,
             status: req.session.status,
+            count: req.session.count,
             active: req.session.active,
             admin: req.session.admin,
             dark__light: req.session.dark__light,
@@ -174,7 +243,6 @@ export class CategoriesController {
     }
 
     async years(req: Request, res: Response) {
-        const { id } = req.params;
         req.session.active = "year";
         const years = await prisma.years.findMany({
 
@@ -183,6 +251,7 @@ export class CategoriesController {
             auth: req.session.auth,
             active: req.session.active,
             status: req.session.status,
+            count: req.session.count,
             admin: req.session.admin,
             dark__light: req.session.dark__light,
             category: req.session.category,
@@ -191,25 +260,73 @@ export class CategoriesController {
     }
     async ByYear(req: Request, res: Response) {
         const { date } = req.params;
-
-        const items = await prisma.items.findMany({
+        const currentType = Number(req.session.category)
+        const count = await prisma.items.count({
             where: {
                 year: Number(date),
                 type: Number(req.session.category)
 
             }
-
         });
-        res.render('types/moves', {
-            auth: req.session.auth,
-            status: req.session.status,
-            active: req.session.active,
-            admin: req.session.admin,
-            dark__light: req.session.dark__light,
-            category: req.session.category,
-            'items': items,
-
-        });
+        if(count > 0){
+            let n = Math.ceil(count / 4)
+            req.session.count = Math.ceil(count / 4)
+            let itemsPerPage = 4
+            
+            let page =Number(req.query.page) 
+            if (!page) page = 1;
+            if (page > n) page = n;
+            let pages = itemsPerPage * (page - 1)
+         
+    
+            const items = await prisma.items.findMany({
+                skip: pages,
+                take:itemsPerPage,
+                where: {
+                    year: Number(date),
+                    type: Number(req.session.category)
+    
+                }
+            
+            });
+            console.log(req.session.category)
+            let k = 0;
+            for (let i = 0; i < items.length; i++) {
+                k = k + 1
+            }
+            res.render('types/moves', {
+                auth: req.session.auth,
+                status: req.session.status,
+                admin: req.session.admin,
+                active: req.session.active,
+                count: req.session.count,
+                dark__light: req.session.dark__light,
+                category: req.session.category,
+                'items': items,
+                
+            });
+        }else{
+            const items = await prisma.items.findMany({
+                where: {
+                    year: Number(date),
+                    type: Number(req.session.category)
+    
+                }
+            
+            });
+            
+            res.render('types/moves', {
+                auth: req.session.auth,
+                status: req.session.status,
+                admin: req.session.admin,
+                active: req.session.active,
+                count: req.session.count,
+                dark__light: req.session.dark__light,
+                category: req.session.category,
+                'items': items,
+                
+            });
+        }
     }
     async ByGenre(req: Request, res: Response) {
         const { id } = req.params;
@@ -222,6 +339,7 @@ export class CategoriesController {
         })
         res.render('types/index', {
             auth: req.session.auth,
+            count: req.session.count,
             status: req.session.status,
             admin: req.session.admin,
             active: req.session.active,
@@ -241,6 +359,7 @@ export class CategoriesController {
         });
         res.render('types/country', {
             auth: req.session.auth,
+            count: req.session.count,
             active: req.session.active,
             status: req.session.status,
             admin: req.session.admin,
@@ -251,24 +370,77 @@ export class CategoriesController {
     }
     async ByCountry(req: Request, res: Response) {
         const { name } = req.params;
-
-        const items = await prisma.items.findMany({
+        const currentType = Number(req.session.category)
+        const count = await prisma.items.count({
             where: {
                 country: {
                     contains: name
                 },
+                type:currentType
             }
         });
-        res.render('types/moves', {
-            auth: req.session.auth,
-            active: req.session.active,
-            admin: req.session.admin,
-            status: req.session.status,
-            dark__light: req.session.dark__light,
-            category: req.session.category,
-            'items': items,
-
-        });
+        if(count > 0){
+            let n = Math.ceil(count / 4)
+            req.session.count = Math.ceil(count / 4)
+            let itemsPerPage = 4
+            
+            let page =Number(req.query.page) 
+            if (!page) page = 1;
+            if (page > n) page = n;
+            let pages = itemsPerPage * (page - 1)
+         
+    
+            const items = await prisma.items.findMany({
+                skip: pages,
+                take:itemsPerPage,
+                where: {
+                    country: {
+                        contains: name
+                    },
+                    type:currentType
+                }
+            
+            });
+            console.log(req.session.category)
+            let k = 0;
+            for (let i = 0; i < items.length; i++) {
+                k = k + 1
+            }
+            res.render('types/moves', {
+                auth: req.session.auth,
+                status: req.session.status,
+                admin: req.session.admin,
+                active: req.session.active,
+                count: req.session.count,
+                dark__light: req.session.dark__light,
+                category: req.session.category,
+                'items': items,
+                
+            });
+        }else{
+            const items = await prisma.items.findMany({
+                where: {
+                    country: {
+                        contains: name
+                    },
+                    type:currentType
+                }
+            
+            });
+            
+            res.render('types/moves', {
+                auth: req.session.auth,
+                status: req.session.status,
+                admin: req.session.admin,
+                active: req.session.active,
+                count: req.session.count,
+                dark__light: req.session.dark__light,
+                category: req.session.category,
+                'items': items,
+                
+            });
+        }
+        
     }
 }
 

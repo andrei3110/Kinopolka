@@ -68,8 +68,8 @@
 
 
         </div>
-        <% for (let i = 0; i < count; i++) { %>
-            <a href="/moves">page<%= i %></a>
+        <% for (let i = 1; i <= count; i++) { %>
+        <a href="?page=<%= i %>"> <div class="page"><%= i %></div></a>
         <% } %>
         <div class="hollow"></div>  
     </div>

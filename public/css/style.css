@@ -1,16 +1,3 @@
-html,
-body {
-
-  overflow-x: hidden;
-  background-image: url(/img/фон.png);
-  /* background: -webkit-linear-gradient(179deg, #afeeee, #fb46a1, #ff69b4, #afeeee);
-   */
-  width: 100%;
-  background-color: rgb(230, 228, 228);
-  height: 100%;
-  padding-top: 40px;
-
-}
 
 .element::-webkit-scrollbar {
   width: 0;
@@ -26,6 +13,7 @@ hr {
   overflow: hidden;
   border-style: inset;
   border-width: 1px;
+  
 }
 
 /* /////////////////////////////////////////////////////////////////////////////////// */
@@ -83,60 +71,10 @@ hr {
 }
 
 /* ///////////////////////////////////////////////////////////////////////////////////////////////// */
-.About {
-  color: #898989;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 20px;
-  ;
-  padding: 20px;
-  width: 500px;
-  height: 10px;
-}
-
-.contacts {
-  color: #898989;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 20px;
-  padding: 20px;
-  width: 500px;
-}
-
-.footer {
-  background-color: #e9e9e9;
-  position: relative;
-  width: 100%;
-  height: 19%;
-  bottom: 0;
-
-  border-radius: 10px 10px 0px 0px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  flex-grow: 0;
-}
 
 .hollow {
   height: 20px;
   width: 100%;
-}
-
-.header {
-  width: 100%;
-  height: 70px;
-  left: 0px;
-  position: fixed;
-  top: -5px;
-  z-index: 6;
-  border-radius: 0px 0px 10px 10px;
-  background-color: rgb(45, 45, 45);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.header__name {
-  color: rgb(200, 199, 199);
-  font-size: 35px;
-  position: absolute;
-  top: 15px;
-  font-family: Century Gothic;
-  left: 15px;
 }
 
 .error__name {
@@ -153,17 +91,6 @@ hr {
   text-align: center;
 
   background-color: rgb(213, 94, 94);
-}
-
-.body__fone {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: rgb(228, 228, 228);
-  box-shadow: 0 14px 28px rgba(56, 54, 54, 0.25), 0 10px 10px rgba(42, 41, 41, 0.22);
-  right: 10px;
-  opacity: 50%;
-  top: 0px;
 }
 
 .wrapper {
@@ -223,12 +150,19 @@ hr {
   background-color: rgb(255, 255, 255);
 }
 
+.content6 {
+  flex-grow: 1;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgb(42, 42, 42);
+}
 .content2 {
   /* flex-grow: 1; */
 
   bottom: 0;
   min-height: 100%;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(42, 42, 42);
 
 }
 
@@ -309,9 +243,9 @@ hr {
   position: relative;
   left: 10%;
   bottom: 3px;
-  background-color: #e7e7e7;
+  background: #292929;
   padding: 20px 30px;
-  border: 2px rgb(157, 157, 157);
+  border: 2px solid #444;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -362,7 +296,7 @@ input:checked~form {
 
 .star-widget label {
   font-size: 40px;
-  color: rgb(181, 181, 181);
+  color: #444;
   padding: 10px;
   float: right;
   transition: all 0.2s ease;
@@ -433,7 +367,7 @@ form .textarea {
   height: 100px;
   font-family: Century Gothic;
   width: 100%;
-  color: #333;
+  color: #9a9a9a;
   overflow: hidden;
 }
 
@@ -441,10 +375,10 @@ form .textarea textarea {
   height: 100%;
   font-family: Century Gothic;
   width: 100%;
-  color: #333;
+  color: #9a9a9a;
   outline: none;
   border: 2px 2px 2px 2px solid #333;
-  background: rgb(188, 188, 188);
+  background: #222;
   padding: 10px;
   font-size: 17px;
 }
@@ -460,8 +394,8 @@ form .Btn button {
   width: 100%;
   border: 2px solid rgb(94, 94, 94);
   outline: none;
-  background: rgb(208, 208, 208);
-  color: #333;
+  background: #222;
+  color: #9a9a9a;
   font-size: 17px;
   font-family: Century Gothic;
   font-weight: 500;
@@ -521,213 +455,6 @@ form .Btn button:hover {
   font-family: Century Gothic;
 }
 
-/* //////////////////////////////////// close menu plase// open form style */
-.circle {
-  width: 150px;
-  height: 150px;
-  background-color: #DCDCDC;
-  border-radius: 100px;
-  position: absolute;
-  z-index: 4;
-  top: -80px;
-  right: 130px;
-}
-
-.icon {
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  z-index: 5;
-  top: -80px;
-  color: #5f5f5f;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  border-radius: 90px;
-  right: 130px;
-}
-
-.LogIn {
-  height: 70px;
-  width: 130px;
-  position: fixed;
-  z-index: 7;
-  right: 15px;
-  top: -5px;
-  border-radius: 0px 0px 15px 0px;
-  background-color: rgb(45, 45, 45);
-}
-
-.registration {
-  position: absolute;
-  text-decoration: none;
-  color: white;
-  top: 400px;
-  left: 110px;
-  font-family: Century Gothic;
-}
-
-.vhod {
-  width: 400px;
-  height: 500px;
-  background-color: #727272;
-  z-index: 3;
-  opacity: 100%;
-  position: absolute;
-  left: 35%;
-  bottom: 11%;
-  border-radius: 30px;
-  box-shadow: 0 14px 28px rgba(56, 54, 54, 0.25), 0 10px 10px rgba(42, 41, 41, 0.22);
-}
-
-.input__login__vhod {
-  width: 350px;
-  height: 50px;
-}
-
-.input__vhod {
-  width: 300px;
-  height: 50px;
-  margin: 10px;
-  border: none;
-  position: relative;
-  top: 100px;
-  left: 50px;
-
-}
-
-.vhod__btn {
-  width: 300px;
-  height: 60px;
-  margin: 10px;
-  position: relative;
-  top: 160px;
-  left: 35px;
-  background-color: rgb(69, 69, 69);
-  border: none;
-  font-family: Century Gothic;
-  font-size: 20px;
-  color: white
-}
-
-.LogIN {
-  position: absolute;
-  font-size: 40px;
-  left: 150px;
-  top: 20px;
-  font-family: Century Gothic;
-}
-
-.reg {
-  width: 400px;
-  height: 500px;
-  background-color: #727272;
-  z-index: 3;
-  opacity: 100%;
-  position: absolute;
-  left: 35%;
-  bottom: 11%;
-  border-radius: 30px;
-  box-shadow: 0 14px 28px rgba(56, 54, 54, 0.25), 0 10px 10px rgba(42, 41, 41, 0.22);
-}
-
-.input__login__reg {
-  width: 350px;
-  height: 50px;
-
-}
-
-.input__reg {
-  width: 300px;
-  height: 50px;
-  margin: 10px;
-  border: none;
-  position: relative;
-  top: 100px;
-  left: 50px;
-
-}
-
-.reg__btn {
-  width: 300px;
-  height: 60px;
-  margin: 10px;
-  position: relative;
-  top: 160px;
-  left: 35px;
-  background-color: rgb(69, 69, 69);
-  border: none;
-  font-family: Century Gothic;
-  font-size: 20px;
-  color: white
-}
-
-.regist {
-  position: absolute;
-  font-size: 40px;
-  font-family: Century Gothic;
-  left: 100px;
-  top: 20px;
-
-}
-
-.loginForm {
-  text-decoration: none;
-  position: absolute;
-  color: white;
-  top: 410px;
-  left: 170px;
-  font-family: Century Gothic;
-}
-
-.input__addon__name {
-  position: absolute;
-  top: 120px;
-  left: 20px;
-  color: #4c4c4c;
-}
-
-.input__addon__key {
-  position: relative;
-  top: 180px;
-  left: -310px;
-  color: #4c4c4c;
-}
-
-.afterError__input__addon__key {
-  position: relative;
-  top: 110px;
-  left: 20px;
-  color: #4c4c4c;
-}
-
-.afterError__input__reg {
-  width: 300px;
-  height: 50px;
-  margin: 10px;
-  border: none;
-  position: relative;
-  top: 100px;
-  left: 15px;
-
-}
-
-
-
-.LogBtn {
-  position: fixed;
-  z-index: 999;
-  top: -5px;
-  height: 70px;
-  width: 100px;
-  right: 20px;
-  border: none;
-  color: white;
-  font-family: Century Gothic;
-  font-size: 20px;
-  /* position: absolute; */
-  background-color: rgb(48, 47, 47);
-}
-
-/* ////////////////////////////////////// close form style // open header btn*/
 .add {
   height: 70px;
   width: 60px;
@@ -1107,14 +834,14 @@ form .Btn button:hover {
   float: right;
   padding-left: 150px;
   font-size: 25px;
-  top: 15px;
+  top: 5px;
   font-family: Century Gothic;
   color: black;
 }
 
 .genre__object {
   width: 75%;
-  height: 100px;
+  height: 75px;
   padding: 3px;
   z-index: 2;
   transition: 0.3s ease;
@@ -1133,7 +860,7 @@ form .Btn button:hover {
 .genre__object:hover {
   background-color: #d9d9d9;
   transition: all 0.4s ease;
-  height: 102px;
+  height: 90px;
   z-index: 4;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -1144,7 +871,7 @@ form .Btn button:hover {
   height: 1000px;
   padding: 3px;
   z-index: 2;
-  background-color: #efefef;
+  background-color: #313131;
   position: relative;
   bottom: 0px;
   border-bottom: 1px solid rgb(146, 145, 145);
@@ -1152,7 +879,7 @@ form .Btn button:hover {
 }
 
 .about__film {
-  color: black;
+  color: rgb(197, 197, 197);
   font-weight: bold;
   font-size: 25px;
   font-family: Century Gothic;
@@ -1179,7 +906,7 @@ form .Btn button:hover {
   left: 400px;
   top: 200px;
   font-size: 15px;
-  color: rgb(87, 87, 87);
+  color: rgb(197, 197, 197);
   font-family: Century Gothic;
 }
 
@@ -1191,7 +918,7 @@ form .Btn button:hover {
   bottom:87%;
   left:40%;
   font-family: Century Gothic;
-  color: rgb(74, 74, 74);
+  color: rgb(197, 197, 197);
 }
 
 .description__actor {
@@ -1199,7 +926,7 @@ form .Btn button:hover {
   left: 400px;
   top: 230px;
   font-size: 15px;
-  color: rgb(87, 87, 87);
+  color: rgb(197, 197, 197);
   font-family: Century Gothic;
 }
 
@@ -1208,7 +935,7 @@ form .Btn button:hover {
   left: 400px;
   top: 260px;
   font-size: 15px;
-  color: rgb(87, 87, 87);
+  color: rgb(197, 197, 197);
 
   font-family: Century Gothic;
 }
@@ -1218,7 +945,7 @@ form .Btn button:hover {
   left: 400px;
   top: 290px;
   font-size: 15px;
-  color: rgb(87, 87, 87);
+  color: rgb(197, 197, 197);
   font-family: Century Gothic;
 }
 
@@ -1227,7 +954,7 @@ form .Btn button:hover {
   left: 400px;
   top: 320px;
   font-size: 15px;
-  color: rgb(87, 87, 87);
+  color: rgb(197, 197, 197);
   font-family: Century Gothic;
 }
 
@@ -1236,7 +963,7 @@ form .Btn button:hover {
   left: 400px;
   top: 350px;
   font-size: 15px;
-  color: rgb(87, 87, 87);
+  color: rgb(197, 197, 197);
   font-family: Century Gothic;
 }
 
@@ -1245,7 +972,7 @@ form .Btn button:hover {
   left: 400px;
   top: 380px;
   font-size: 15px;
-  color: rgb(87, 87, 87);
+  color: rgb(197, 197, 197);
   font-family: Century Gothic;
 }
 
@@ -1255,12 +982,12 @@ form .Btn button:hover {
   top: 460px;
   width: 500px;
   font-size: 15px;
-  color: rgb(87, 87, 87);
+  color: rgb(197, 197, 197);
   font-family: Century Gothic;
 }
 
 .textViews {
-  color: rgb(92, 92, 92);
+  color: rgb(211, 211, 211);
   width: 1000px;
   margin: 0px;
   font-weight: bold;
@@ -1270,7 +997,7 @@ form .Btn button:hover {
   left: 200px;
 }
 .textVoises {
-  color: rgb(71, 71, 71);
+  color: rgb(112, 112, 112);
   width: 1000px;
   margin: 0px;
   font-weight: bold;
@@ -1285,7 +1012,7 @@ form .Btn button:hover {
   left: 400px;
   top: 175px;
   font-size: 15px;
-  color: rgb(87, 87, 87);
+  color: rgb(197, 197, 197);
   font-family: Century Gothic;
 }
 
@@ -1388,144 +1115,6 @@ form .Btn button:hover {
 }
 
 /* //////////////////////////////////////////////////////////////// search films*/
-.search__films {
-  position: absolute;
-  right: 38%;
-  top: 100px;
-  width: 25%;
-  height: 50px;
-  border: none;
-  border-radius: 10px 0 0 10px;
-  z-index: 1;
-  font-family: Century Gothic;
-}
-.search__films__button {
-  position: absolute;
-  right: 32%;
-  top: 101px;
-  width: 80px;
-  height: 50px;
-  border: none;
-  border-radius: 0 10px 10px 0;
-  background-color: rgb(255, 207, 110);
-  z-index: 1;
-}
-
-.genres__btn {
-  position: relative;
-  right: 2%;
-  top: -60px;
-}
-
-.genres {
-  position: relative;
-  right: 10%;
-  z-index: 1;
-  top: -60px;
-}
-
-.search__of__genre {
-  padding: 5px;
-  height: 30px;
-  border: none;
-  background-color: #a5a5a5;
-  position: relative;
-  opacity: 80%;
-  z-index: 1;
-  color: white;
-  border-radius: 10px;
-  font-family: Century Gothic;
-}
-
-.bovik {
-  position: absolute;
-  right: 850px;
-  top: 170px;
-}
-
-.adventure {
-  position: absolute;
-  right: 740px;
-  top: 170px;
-}
-
-.triller {
-  position: absolute;
-  right: 663px;
-  top: 170px;
-}
-
-.horror {
-  position: absolute;
-  right: 580px;
-  top: 170px;
-}
-
-.dramma {
-  position: absolute;
-  right: 800px;
-  top: 210px;
-}
-
-.comedy {
-  position: absolute;
-  right: 720px;
-  top: 210px;
-}
-
-.melodrama {
-  position: absolute;
-  right: 600px;
-  top: 210px;
-}
-
-.tragedy {
-  position: absolute;
-  right: 520px;
-  top: 210px;
-}
-
-.fantastic {
-  position: absolute;
-  right: 475px;
-  top: 170px;
-}
-
-.anime {
-  position: absolute;
-  right: 450px;
-  top: 210px;
-}
-
-.mistyc {
-  position: absolute;
-  right: 820px;
-  top: 250px;
-}
-
-.detective {
-  position: absolute;
-  right: 740px;
-  top: 250px;
-}
-
-.family {
-  position: absolute;
-  right: 650px;
-  top: 250px;
-}
-
-.child {
-  position: absolute;
-  right: 570px;
-  top: 250px;
-}
-
-.istoric {
-  position: absolute;
-  right: 450px;
-  top: 250px;
-}
 
 /* ////////////////////////////////////////////////////////////////////////  COMMENTS */
 .comment {
@@ -1534,12 +1123,12 @@ form .Btn button:hover {
   margin-top: 20px;
   bottom: 10px;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   left: 10%;
   padding: 30px;
   z-index: 2;
   height: 100%;
-  background-color: #efefef;
+  background-color: #313131;
 
 }
 
@@ -1550,11 +1139,11 @@ form .Btn button:hover {
   right: 10px;
   position: relative;
   font-family: Century Gothic;
-  background-color: rgb(184, 184, 184);
+  background-color: #313131;
 }
 
 .commentText {
-  color: #333;
+  color: #ffffff;
 }
 
 .commentName {
@@ -1568,24 +1157,25 @@ form .Btn button:hover {
 
 .comment__box {
   width: 100%;
-  height: 100px;
+  min-height: 100px;
   margin: 2px;
   right: 10px;
   position: relative;
-  font-family: Century Gothic;
-  background-color: rgb(245, 245, 245);
+  
+  background-color: #383838;
 }
 
 .commentUsername {
   width: 20%;
   height: 30px;
+  font-family: Century Gothic;
   position: relative;
   right: 0px;
   text-align: left;
   margin: 10px;
   top: 15px;
   border: #333 2px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #bababa;
 }
 
 .commentText {
@@ -1603,17 +1193,17 @@ form .Btn button:hover {
   right: 15px;
   margin: 20px;
   padding: 5px;
-  background-color: rgb(245, 245, 245);
+  background-color: #383838;
   bottom: 25px;
   border: none;
-  color: #5f5f5f;
+  color: #8a8a8a;
   /* background-color: #f0eeee; */
 }
 
 .deleteComment:hover {
   transition: all 0.4s ease;
   font-family: Century Gothic;
-  color: rgb(180, 180, 180);
+  color: rgb(207, 207, 207);
   /* background-color: rgb(255, 181, 42); */
 }
 
@@ -2214,4 +1804,55 @@ top:100px;
 }
 a {
   text-decoration: none;
+  
+
+}
+.page{
+  padding:15px;
+  padding-left: 20px;
+  padding-right:20px ;
+  background-color: #a5a5a5;
+  border:none;
+  color:white;
+  text-decoration: none;
+  display:inline-block;
+  text-align: center;
+  position:relative;
+  font-size: 20px;
+  font-family: Century Gothic;
+  border-radius: 5px;
+  left:50%;
+}
+.page a {
+  color:white;
+}
+
+.header__image{
+  width:800px;
+  height:300px;
+}
+.fone__image{
+  width:1170px;
+  opacity: 30%;
+  position:relative;
+  left:12%;
+}
+.gradient {
+	display: inline-block;
+	position: relative;    
+	line-height: 0;
+}
+.gradient:after {
+	content: "";
+	display: block;    
+	width: 100%;
+	height: 100%;    
+	position: absolute;
+	top: 0;      
+	left: 12%;   
+	background: transparent;
+	background: radial-gradient(circle at top , rgba(255, 255, 255, 0.3),rgba(42,42,42,0.4),rgba(42,42,42,0.7) ,rgba(42,42,42,1),rgba(42,42,42,1));
+
+  border:solid rgba(42, 42, 42,1) 4px;
+	
 }

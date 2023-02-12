@@ -46,6 +46,7 @@ class CategoriesController {
                 status: req.session.status,
                 dark__light: req.session.dark__light,
                 category: req.session.category,
+                count: req.session.count,
                 'items': items,
                 'categories': categories,
                 'genres': genres,
@@ -69,50 +70,64 @@ class CategoriesController {
                     type: Number(req.session.category)
                 }
             });
-            req.session.count = Math.ceil(count / 4);
-            console.log(req.session.count);
-            let itemsPerPage = 4;
-            let page = 0;
-            const items = yield prisma.items.findMany({
-                skip: page,
-                take: itemsPerPage,
-                where: {
-                    genre: {
-                        contains: name
-                    },
-                    type: Number(req.session.category)
+            if (count > 0) {
+                let n = Math.ceil(count / 4);
+                req.session.count = Math.ceil(count / 4);
+                let itemsPerPage = 4;
+                let page = Number(req.query.page);
+                if (!page)
+                    page = 1;
+                if (page > n)
+                    page = n;
+                let pages = itemsPerPage * (page - 1);
+                const items = yield prisma.items.findMany({
+                    skip: pages,
+                    take: itemsPerPage,
+                    where: {
+                        genre: {
+                            contains: name
+                        },
+                        type: Number(req.session.category)
+                    }
+                });
+                console.log(req.session.category);
+                let k = 0;
+                for (let i = 0; i < items.length; i++) {
+                    k = k + 1;
                 }
-            });
-            let k = 0;
-            for (let i = 0; i < items.length; i++) {
-                k = k + 1;
+                res.render('types/moves', {
+                    auth: req.session.auth,
+                    active: req.session.active,
+                    status: req.session.status,
+                    admin: req.session.admin,
+                    dark__light: req.session.dark__light,
+                    category: req.session.category,
+                    count: req.session.count,
+                    'items': items,
+                    'genres': genres,
+                });
             }
-            res.render('types/moves', {
-                auth: req.session.auth,
-                active: req.session.active,
-                status: req.session.status,
-                admin: req.session.admin,
-                dark__light: req.session.dark__light,
-                category: req.session.category,
-                count: req.session.count,
-                'items': items,
-                'genres': genres,
-            });
-        });
-    }
-    pages(req, res) {
-        return __awaiter(this, void 0, void 0, function* () {
-            for (let i = 0; i < Number(req.session.count); i++) {
+            else {
+                const items = yield prisma.items.findMany({
+                    where: {
+                        genre: {
+                            contains: name
+                        },
+                        type: Number(req.session.category)
+                    }
+                });
+                res.render('types/moves', {
+                    auth: req.session.auth,
+                    active: req.session.active,
+                    status: req.session.status,
+                    admin: req.session.admin,
+                    dark__light: req.session.dark__light,
+                    category: req.session.category,
+                    count: req.session.count,
+                    'items': items,
+                    'genres': genres,
+                });
             }
-            res.render('types/moves', {
-                auth: req.session.auth,
-                status: req.session.status,
-                admin: req.session.admin,
-                count: req.session.count,
-                active: req.session.active,
-                dark__light: req.session.dark__light,
-                category: req.session.category,
-            });
         });
     }
     cartoons(req, res) {
@@ -123,7 +138,7 @@ class CategoriesController {
                     name
                 }
             });
-            const items = yield prisma.items.findMany({
+            const count = yield prisma.items.count({
                 where: {
                     genre: {
                         contains: name
@@ -131,16 +146,64 @@ class CategoriesController {
                     type: Number(req.session.category)
                 }
             });
-            res.render('types/moves', {
-                auth: req.session.auth,
-                status: req.session.status,
-                admin: req.session.admin,
-                active: req.session.active,
-                dark__light: req.session.dark__light,
-                category: req.session.category,
-                'items': items,
-                'cartoonGenres': genres,
-            });
+            if (count > 0) {
+                let n = Math.ceil(count / 4);
+                req.session.count = Math.ceil(count / 4);
+                let itemsPerPage = 4;
+                let page = Number(req.query.page);
+                if (!page)
+                    page = 1;
+                if (page > n)
+                    page = n;
+                let pages = itemsPerPage * (page - 1);
+                const items = yield prisma.items.findMany({
+                    skip: pages,
+                    take: itemsPerPage,
+                    where: {
+                        genre: {
+                            contains: name
+                        },
+                        type: Number(req.session.category)
+                    }
+                });
+                console.log(req.session.category);
+                let k = 0;
+                for (let i = 0; i < items.length; i++) {
+                    k = k + 1;
+                }
+                res.render('types/moves', {
+                    auth: req.session.auth,
+                    status: req.session.status,
+                    admin: req.session.admin,
+                    active: req.session.active,
+                    count: req.session.count,
+                    dark__light: req.session.dark__light,
+                    category: req.session.category,
+                    'items': items,
+                    'cartoonGenres': genres,
+                });
+            }
+            else {
+                const items = yield prisma.items.findMany({
+                    where: {
+                        genre: {
+                            contains: name
+                        },
+                        type: Number(req.session.category)
+                    }
+                });
+                res.render('types/moves', {
+                    auth: req.session.auth,
+                    status: req.session.status,
+                    admin: req.session.admin,
+                    active: req.session.active,
+                    count: req.session.count,
+                    dark__light: req.session.dark__light,
+                    category: req.session.category,
+                    'items': items,
+                    'cartoonGenres': genres,
+                });
+            }
         });
     }
     searchFilms(req, res) {
@@ -166,6 +229,7 @@ class CategoriesController {
                 searchMove: req.session.searchMove,
                 auth: req.session.auth,
                 status: req.session.status,
+                count: req.session.count,
                 active: req.session.active,
                 admin: req.session.admin,
                 dark__light: req.session.dark__light,
@@ -175,13 +239,13 @@ class CategoriesController {
     }
     years(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { id } = req.params;
             req.session.active = "year";
             const years = yield prisma.years.findMany({});
             res.render('types/years', {
                 auth: req.session.auth,
                 active: req.session.active,
                 status: req.session.status,
+                count: req.session.count,
                 admin: req.session.admin,
                 dark__light: req.session.dark__light,
                 category: req.session.category,
@@ -192,21 +256,65 @@ class CategoriesController {
     ByYear(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { date } = req.params;
-            const items = yield prisma.items.findMany({
+            const currentType = Number(req.session.category);
+            const count = yield prisma.items.count({
                 where: {
                     year: Number(date),
                     type: Number(req.session.category)
                 }
             });
-            res.render('types/moves', {
-                auth: req.session.auth,
-                status: req.session.status,
-                active: req.session.active,
-                admin: req.session.admin,
-                dark__light: req.session.dark__light,
-                category: req.session.category,
-                'items': items,
-            });
+            if (count > 0) {
+                let n = Math.ceil(count / 4);
+                req.session.count = Math.ceil(count / 4);
+                let itemsPerPage = 4;
+                let page = Number(req.query.page);
+                if (!page)
+                    page = 1;
+                if (page > n)
+                    page = n;
+                let pages = itemsPerPage * (page - 1);
+                const items = yield prisma.items.findMany({
+                    skip: pages,
+                    take: itemsPerPage,
+                    where: {
+                        year: Number(date),
+                        type: Number(req.session.category)
+                    }
+                });
+                console.log(req.session.category);
+                let k = 0;
+                for (let i = 0; i < items.length; i++) {
+                    k = k + 1;
+                }
+                res.render('types/moves', {
+                    auth: req.session.auth,
+                    status: req.session.status,
+                    admin: req.session.admin,
+                    active: req.session.active,
+                    count: req.session.count,
+                    dark__light: req.session.dark__light,
+                    category: req.session.category,
+                    'items': items,
+                });
+            }
+            else {
+                const items = yield prisma.items.findMany({
+                    where: {
+                        year: Number(date),
+                        type: Number(req.session.category)
+                    }
+                });
+                res.render('types/moves', {
+                    auth: req.session.auth,
+                    status: req.session.status,
+                    admin: req.session.admin,
+                    active: req.session.active,
+                    count: req.session.count,
+                    dark__light: req.session.dark__light,
+                    category: req.session.category,
+                    'items': items,
+                });
+            }
         });
     }
     ByGenre(req, res) {
@@ -217,6 +325,7 @@ class CategoriesController {
             const cartoons = yield prisma.cartoonGenres.findMany({});
             res.render('types/index', {
                 auth: req.session.auth,
+                count: req.session.count,
                 status: req.session.status,
                 admin: req.session.admin,
                 active: req.session.active,
@@ -234,6 +343,7 @@ class CategoriesController {
             const country = yield prisma.country.findMany({});
             res.render('types/country', {
                 auth: req.session.auth,
+                count: req.session.count,
                 active: req.session.active,
                 status: req.session.status,
                 admin: req.session.admin,
@@ -246,22 +356,71 @@ class CategoriesController {
     ByCountry(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const { name } = req.params;
-            const items = yield prisma.items.findMany({
+            const currentType = Number(req.session.category);
+            const count = yield prisma.items.count({
                 where: {
                     country: {
                         contains: name
                     },
+                    type: currentType
                 }
             });
-            res.render('types/moves', {
-                auth: req.session.auth,
-                active: req.session.active,
-                admin: req.session.admin,
-                status: req.session.status,
-                dark__light: req.session.dark__light,
-                category: req.session.category,
-                'items': items,
-            });
+            if (count > 0) {
+                let n = Math.ceil(count / 4);
+                req.session.count = Math.ceil(count / 4);
+                let itemsPerPage = 4;
+                let page = Number(req.query.page);
+                if (!page)
+                    page = 1;
+                if (page > n)
+                    page = n;
+                let pages = itemsPerPage * (page - 1);
+                const items = yield prisma.items.findMany({
+                    skip: pages,
+                    take: itemsPerPage,
+                    where: {
+                        country: {
+                            contains: name
+                        },
+                        type: currentType
+                    }
+                });
+                console.log(req.session.category);
+                let k = 0;
+                for (let i = 0; i < items.length; i++) {
+                    k = k + 1;
+                }
+                res.render('types/moves', {
+                    auth: req.session.auth,
+                    status: req.session.status,
+                    admin: req.session.admin,
+                    active: req.session.active,
+                    count: req.session.count,
+                    dark__light: req.session.dark__light,
+                    category: req.session.category,
+                    'items': items,
+                });
+            }
+            else {
+                const items = yield prisma.items.findMany({
+                    where: {
+                        country: {
+                            contains: name
+                        },
+                        type: currentType
+                    }
+                });
+                res.render('types/moves', {
+                    auth: req.session.auth,
+                    status: req.session.status,
+                    admin: req.session.admin,
+                    active: req.session.active,
+                    count: req.session.count,
+                    dark__light: req.session.dark__light,
+                    category: req.session.category,
+                    'items': items,
+                });
+            }
         });
     }
 }

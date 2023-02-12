@@ -3,8 +3,11 @@
 <%- include('particles/adaptive.ejs') %>
 
             <div class="wrapper">
-                <div class="content3">
-                    <div class="header__image"></div>
+                <div class="content6">
+                    <div class="header__image">
+                       <div class="gradient"><img class="fone__image" src="/img/человекПаук.jpg"></div>
+                    </div>
+                    
                     <div class="description__film" id="films">
                         <input type="hidden" name="nameId" value="<%= items.name %>">
                         <img class="description__image" src="/img/<%= items.image %>">
@@ -64,7 +67,7 @@
                                
                                     <div class="rate__count five">
                                         <span class="averangeText" id="averangeText">
-                                            
+                                            <%= number %> 
                                         </span>
                                         
                                     </div>
@@ -128,7 +131,7 @@
                                 <% if (auth) { %>
 
                                     <div class="container" id="container">
-                                        <hr>
+                                        
                                         <div class="post">
                                             <div class="text">Thanks for rating us !</div>
                                             <!-- <div class="edit">EDIT</div> -->
@@ -166,7 +169,7 @@
                                             </header>
 
                                         </div>
-                                        <hr>
+                                        
                                     </div>
                             </form>
                         </div>
@@ -213,7 +216,7 @@
                                     <div class="comment" id="comment">
                                        
                                         <div class="commentName">Комментарии:</div>
-                                        <hr>
+                                        <hr style="background-color: rgb(95, 95, 95);">
                                         <% for (let i=0; i < comments.length; i++) { %>
                                             <div class="comment__box">
                                                 <div name="userName" class="commentUsername">
@@ -240,5 +243,17 @@
                                     
                                 </div>
 </div>
-<%- include('particles/footer.ejs') %>
+<footer class="dark__footer">
+     
+    <div class="About">
+        About us:
+        <hr>
+    </div>
+    <div class="contacts">
+    Telegramm: @AndreiChebanov
+    <br>
+    Gmail: andreichebaniv98@gmail.com
+    </div>
+    
+</footer>
             
