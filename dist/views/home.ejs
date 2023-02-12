@@ -55,18 +55,20 @@
        <div class="hollow"></div>
         <div class="sliders__pictures">
                 <div class="slider__wrapper">
-                    <div class="slider__item"><img class="slider__image"src="/prevew/fantastic4.jpg"></div>
-                    <div class="slider__item"><img class="slider__image"src="/prevew/hero.webp"></div>
-                    <div class="slider__item"><img class="slider__image"src="/prevew/ghost.webp"></div>
-                    <div class="slider__item"><img class="slider__image"src="/prevew/martian.jpg"></div>
-                    <div class="slider__item"><img class="slider__image"src="/prevew/thor.jpg"></div>
-                    <div class="slider__item"><img class="slider__image"src="/prevew/zombilend.jpg"></div>
+                    <div style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/fantastic4.jpg"></div>
+                    
+                    <div  style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/hero.webp"></div>
+                    <div style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/ghost.webp"></div>
+                    <div style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/martian.jpg"></div>
+                    <div style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/thor.jpg"></div>
+                    <div style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/zombilend.jpg"></div>
                    
                 </div>
                 <button class="slider__control slider__control--l" id="right"> <i class="fa fa-angle-left fa-5x" aria-hidden="true"></i></button>
                 <button class="slider__control slider__control--r" id="left"><i class="fa fa-angle-right fa-5x" aria-hidden="true"></i></button>
                 
         </div>
+        <div class="hollow"></div>
         <script>
                 let maxWidth = 1280;
                 let itemsCount = 2;
@@ -94,9 +96,9 @@ sliders.forEach(slider => {
     const LeftBtn  = document.querySelector(".slider__control--l")
     const RightBtn = document.querySelector(".slider__control--r")
     RightBtn.addEventListener('click', () => {
-        if(currentIndex < 2 ){
+        if(currentIndex < 4 ){
             currentIndex++;
-            currentMargin = currentMargin - 640;
+            currentMargin = currentMargin - 650;
             sliderWrapper.style.marginLeft = currentMargin + 'px';
         }
         
@@ -104,7 +106,7 @@ sliders.forEach(slider => {
     LeftBtn.addEventListener('click', () => {
         if(currentIndex > 0 ){
             currentIndex--;
-            currentMargin = currentMargin + 640;
+            currentMargin = currentMargin + 650;
             sliderWrapper.style.marginLeft = currentMargin + 'px';
         }
     })
