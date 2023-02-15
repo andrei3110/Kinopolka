@@ -118,11 +118,63 @@
                                 <a href="/bySubscribe/<%= items.id %>"><button class="watch__by__subscribe">Смотреть фильм по подписке</button></a>
                                 <% } %>
 
-                        <div class="slider" id="slider">
-                            <iframe width="90%" class="video" height="80%" src=" <%= items.treller %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <div class="films__stills">
+                            <div class="films__stills__wrapper">
+                    <div class="films__stills__item"><img class="films__stills__image"src="/prevew/fantastic4.jpg"></div>
+                    <div class="slider__item"><img class="films__stills__image"src="/prevew/hero.webp"></div>
+                    <div  class="slider__item"><img class="films__stills__image"src="/prevew/ghost.webp"></div>
+                    <div  class="slider__item"><img class="films__stills__image"src="/prevew/martian.jpg"></div>
+                    <div  class="slider__item"><img class="films__stills__image"src="/prevew/thor.jpg"></div>
+                    <div class="slider__item"><img class="films__stills__image"src="/prevew/zombilend.jpg"></div>
+                            </div>
+                            <button class="film__slider__control film__slider__control--l" id="right"> <i class="fa fa-angle-left fa-5x" aria-hidden="true"></i></button>
+                            <button class="film__slider__control film__slider__control--r" id="left"><i class="fa fa-angle-right fa-5x" aria-hidden="true"></i></button>
                             
-                        </div>
-                        
+                    </div>
+                    <script>
+                        let maxWidth = 400;
+                        let itemsCount = 1;
+        
+        console.log(document.documentElement.clientWidth)
+        addEventListener('resize' , () => {
+            if(document.documentElement.clientWidth< 760){
+                document.querySelector(".films__stills").style.width = "450px"
+            }
+        })
+        
+        
+        const sliders = document.querySelectorAll(".films__stills")
+        sliders.forEach(slider => {
+            let currentIndex = 0;
+            let currentMargin = 0;
+            const sliderWrapper = slider.querySelector(".films__stills__wrapper")
+            const items = sliderWrapper.querySelectorAll(".films__stills__item")
+        
+            items.forEach(items => {
+                items.style.width = maxWidth / itemsCount + 'px';
+            })
+            sliderWrapper.style.width = maxWidth / itemsCount + items.length + 'px';
+        
+            const LeftBtn  = document.querySelector(".film__slider__control--l")
+            const RightBtn = document.querySelector(".film__slider__control--r")
+            RightBtn.addEventListener('click', () => {
+                if(currentIndex < 4 ){ 
+                    currentIndex++;
+                    currentMargin = currentMargin - 400;
+                    sliderWrapper.style.marginLeft = currentMargin + 'px';
+                }
+                
+            })
+            LeftBtn.addEventListener('click', () => {
+                if(currentIndex > 0 ){
+                    currentIndex--;
+                    currentMargin = currentMargin + 400;
+                    sliderWrapper.style.marginLeft = currentMargin + 'px';
+                }
+            })
+        })
+        
+                </script>
                     </div>
 
 

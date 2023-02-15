@@ -1032,14 +1032,6 @@ form .Btn button:hover {
   left:20%;
   top:15%;
 }
-.slider {
-  
-  width:40%;
-  height:30%;
-  position: absolute;
-  bottom: 40px;
-  left: 25%;
-}
 
 .averange {
   position: relative;
@@ -1912,4 +1904,48 @@ a {
   font-weight: bolder;
   position: relative;
   left:100px;
+}
+/* ////////////////////////////////////// */
+.films__stills__image{
+  display:inline-block;
+  position:relative;
+  border-radius: 15px;
+  width:400px;
+
+  
+  
+}
+.films__stills__wrapper{
+  display:flex;
+  transition: all .2s ease;
+}
+.films__stills {
+  width:400px;
+  position:relative;
+  top:600px;
+  left:0px;
+  overflow: hidden;
+  margin:0 auto;
+  
+}
+.film__slider__control{
+  padding:20px;
+  background: none;
+  border:none;
+ z-index:8;
+  color:white;
+  
+} 
+
+.film__slider__control--l{
+  position: absolute;
+  bottom:80px;
+  
+
+}
+.film__slider__control--r{
+  position: absolute;
+  bottom:80px;
+  
+  left:350px;
 }
