@@ -941,24 +941,28 @@ form .Btn button:hover {
 .search__films {
   position: absolute;
   right: 38%;
-  top: 100px;
+  top: 15%;
   width: 350px;
   height: 50px;
   border: none;
   border-radius: 10px 0 0 10px;
   z-index: 1;
   font-family: Century Gothic;
+  background-color: #666666;
+    color:rgb(255, 255, 255);
 }
 
 .search__films__button {
   position: absolute;
   right: 32%;
-  top: 101px;
+  top: 18%;
   width: 80px;
   height: 50px;
   border: none;
   border-radius: 0 10px 10px 0;
-  background-color: rgb(255, 207, 110);
+  
+  background-color: #666666;
+    color:rgb(255, 255, 255);
   z-index: 1;
 }
 

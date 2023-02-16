@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width"> 
     <title>Kino-polka</title>
     <link rel="icon" href="/img/иконка.jpg" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -26,8 +26,19 @@
                 <a href="/categories/3"><button class="dropMenu__btn">Мультфильмы</button></a>
             </div>
         </div>
-        
+        <!-- <form action="/home" method="post">
+            <input name="name" class="search__films" placeholder="введите название фильма">
+            <div class="genres__btn">
+
+
+            </div>
+
+            <input type="submit" class="search__films__button">
+
+
+        </form> -->
         <script>
+            
             function myFunction() {
                 document.getElementById("myDropdown").classList.toggle("show");
             }
@@ -54,18 +65,18 @@
             <a href="/bascet__btn"><button class="btn bascet"><i class="fa fa-bookmark" aria-hidden="true"></i></button></a>
             <a href="/users__btn"><button class="btn users"><i class="fa fa-user-circle" aria-hidden="true"></i></button></a>
             <a href="/notification__btn"><button class="btn notification"><i class="fa fa-bell" aria-hidden="true"></i></button></a>
-            <form action="/subscribe" method="post"><input type="submit" class="admin__subscribe" value="Попробовать Kino +"></form>
+            <!-- <form action="/subscribe" method="post"><input type="submit" class="admin__subscribe" value="Попробовать Kino +"></form> -->
         <% } else { %>
             
                 <a href="/bascet__btn"><button class="btn bascet__simple"><i class="fa fa-bookmark" aria-hidden="true"></i></button></a>
                 <a href="/notification__btn"><button class="btn notification__simple"><i class="fa fa-bell" aria-hidden="true"></i></button></a>
-                <form action="/subscribe" method="post"><input type="submit" class="users__subscribe" value="Попробовать Kino +"></form>
+                <!-- <form action="/subscribe" method="post"><input type="submit" class="users__subscribe" value="Попробовать Kino +"></form> -->
         <% } %>
         <a href="/Logout"><button class=" btn LogIn">выход</button></a>
         
     <% } else { %>
         <a href="/enter"><button class=" btn LogIn">вход</button></a>
-        <form action="/subscribe" method="post"><input type="submit" class="subscribe" value="Попробовать Kino +"></form>
+        <!-- <form action="/subscribe" method="post"><input type="submit" class="subscribe" value="Попробовать Kino +"></form> -->
     <% } %>
 
    

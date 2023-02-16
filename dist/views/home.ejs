@@ -1,116 +1,123 @@
 <%- include('particles/header.ejs') %>
-       
+      
             <!-- <%- include('particles/navigation.ejs') %> -->
 
             <%- include('particles/menu.ejs') %>
                 <%- include('particles/adaptive.ejs') %>
-                    <form action="/home" method="post">
-                        <input name="name" class="search__films" placeholder="введите название фильма">
-                        <div class="genres__btn">
+                   
+        <div class="frame2">
 
-
-                        </div>
-
-                        <input type="submit" class="search__films__button">
-        
-
-                    </form>
-        
-        <div class="searchForGenresBtn">
-        <form action="/bovik" method="post"><input type="submit" class="search__of__genre bovik" name="name"
-                value="боевик"></form>
-        <form action="/adventure" method="post"><input type="submit" class="search__of__genre adventure" name="name"
-                value="приключения"></form>
-        <form action="/triller" method="post"><input type="submit" class="search__of__genre triller" name="name"
-                value="триллер"></form>
-        <form action="/horror" method="post"><input type="submit" class="search__of__genre horror" name="name"
-                value="ужасы"></form>
-        <form action="/drama" method="post"><input type="submit" class="search__of__genre dramma" name="name"
-                value="драмма"></form>
-        <form action="/comedy" method="post"><input type="submit" class="search__of__genre comedy" name="name"
-                value="комедия"></form>
-        <form action="/melodrama" method="post"><input type="submit" class="search__of__genre melodrama" name="name"
-                value="мелодрамма"></form>
-        <form action="/tragedy" method="post"><input type="submit" class="search__of__genre tragedy" name="name"
-                value="трагедия"></form>
-        <form action="/fantastic" method="post"><input type="submit" class="search__of__genre fantastic" name="name"
-                value="фантастика"></form>
-        <form action="/anime" method="post"><input type="submit" class="search__of__genre anime" name="name"
-                value="аниме"></form>
-        <form action="/mistyc" method="post"><input type="submit" class="search__of__genre mistyc" name="name"
-                value="мистика"></form>
-        <form action="/detective" method="post"><input type="submit" class="search__of__genre detective" name="name"
-                value="детектив"></form>
-        <form action="/child" method="post"><input type="submit" class="search__of__genre child" name="name"
-                value="детский"></form>
-        <form action="/family" method="post"><input type="submit" class="search__of__genre family" name="name"
-                value="семейный"></form>
-        <form action="/istoric" method="post"><input type="submit" class="search__of__genre istoric" name="name"
-                value="исторический"></form>
-
-        </div>
-       <div class="hollow2"></div>
        
-       <div class="popular">Cамые популярные:</div>
-       <div class="hollow"></div>
+                <div class="genres__container">
+
+
+                        <div class="searchForGenresBtn ">
+            
+                            <form class="search__of__genre" action="/bovik" method="post"><input type="submit"
+                                    class="allgenre bovik " name="name" value="боевик"></form>
+                            <form class="search__of__genre" action="/adventure" method="post"><input type="submit"
+                                    class="allgenre adventure " name="name" value="приключения"></form>
+                            <form class="search__of__genre" action="/triller" method="post"><input type="submit"
+                                    class="allgenre triller " name="name" value="триллер"></form>
+                            <form class="search__of__genre" action="/horror" method="post"><input type="submit"
+                                    class="allgenre horror " name="name" value="ужасы"></form>
+                            <form class="search__of__genre" action="/drama" method="post"><input type="submit"
+                                    class="allgenre dramma " name="name" value="драмма"></form>
+                            <form class="search__of__genre" action="/comedy" method="post"><input type="submit"
+                                    class="allgenre comedy " name="name" value="комедия"></form>
+                            <form class="search__of__genre" action="/melodrama" method="post"><input type="submit"
+                                    class="allgenre melodrama " name="name" value="мелодрамма"></form>
+                            <form class="search__of__genre" action="/tragedy" method="post"><input type="submit"
+                                    class="allgenre tragedy " name="name" value="трагедия"></form>
+                            <form class="search__of__genre" action="/fantastic" method="post"><input type="submit"
+                                    class="allgenre fantastic" name="name" value="фантастика"></form>
+                            <form class="search__of__genre" action="/anime" method="post"><input type="submit"
+                                    class="allgenre anime" name="name" value="аниме"></form>
+                            <form class="search__of__genre" action="/mistyc" method="post"><input type="submit"
+                                    class="allgenre mistyc" name="name" value="мистика"></form>
+                            <form class="search__of__genre" action="/detective" method="post"><input type="submit"
+                                    class="allgenre detective" name="name" value="детектив"></form>
+                            <form class="search__of__genre" action="/child" method="post"><input type="submit"
+                                    class="allgenre child" name="name" value="детский"></form>
+                            <form class="search__of__genre" action="/family" method="post"><input type="submit"
+                                    class="allgenre family" name="name" value="семейный"></form>
+                            <form class="search__of__genre" action="/istoric" method="post"><input type="submit"
+                                    class="allgenre istoric" name="name" value="исторический"></form>
+            
+                        </div>
+                    </div>
+                   
+       
+
+
         <div class="sliders__pictures">
                 <div class="slider__wrapper">
-                        <div style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/fantastic4.jpg"></div>
-                        
-                        <div  style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/hero.webp"></div>
-                        <div style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/ghost.webp"></div>
-                        <div style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/martian.jpg"></div>
-                        <div style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/thor.jpg"></div>
-                        <div style="margin:0 0 0 10px;" class="slider__item"><img class="slider__image"src="/prevew/zombilend.jpg"></div>
-                   
+                    <div  class="slider__item"><img class="slider__image"
+                            src="./prevew/fantastic4.jpg"></div>
+    
+                    <div  class="slider__item"><img class="slider__image" src="./prevew/hero.webp">
+                    </div>
+                    <div  class="slider__item"><img class="slider__image"
+                            src="./prevew/ghost.webp"></div>
+                    <div  class="slider__item"><img class="slider__image"
+                            src="./prevew/martian.jpg"></div>
+                    <div  class="slider__item"><img class="slider__image" src="./prevew/thor.jpg">
+                    </div>
+                    <div class="slider__item"><img class="slider__image"
+                            src="./prevew/zombilend.jpg"></div>
+    
                 </div>
-                <button class="slider__control slider__control--l" id="right"> <i class="fa fa-angle-left fa-5x" aria-hidden="true"></i></button>
-                <button class="slider__control slider__control--r" id="left"><i class="fa fa-angle-right fa-5x" aria-hidden="true"></i></button>
-                
-        </div>
-        <div class="hollow"></div>
+                <button class="slider__control slider__control--l" id="right"> <i class="fa fa-angle-left fa-5x"
+                        aria-hidden="true"></i></button>
+                <button class="slider__control slider__control--r" id="left"><i class="fa fa-angle-right fa-5x"
+                        aria-hidden="true"></i></button>
+    
+            </div>
+
         <script>
-                let maxWidth = 1280;
-                let itemsCount = 2;
+                let maxWidth = 640;
+                let itemsCount = 1;
+    
+                console.log(document.documentElement.clientWidth)
+                addEventListener('resize', () => {
+                    if (document.documentElement.clientWidth < 760) {
+                        document.querySelector(".sliders__pictures").style.width = "450px"
+                    }
+                })
+    
+    
+                const sliders = document.querySelectorAll(".sliders__pictures")
+                sliders.forEach(slider => {
+                    let currentIndex = 0;
+                    let currentMargin = 0;
+                    const sliderWrapper = slider.querySelector(".slider__wrapper")
+                    const items = sliderWrapper.querySelectorAll(".slider__item")
+    
+                    items.forEach(items => {
+                        items.style.width = maxWidth / itemsCount + 'px';
+                    })
+                    sliderWrapper.style.width = maxWidth / itemsCount + items.length + 'px';
+    
+                    const LeftBtn = document.querySelector(".slider__control--l")
+                    const RightBtn = document.querySelector(".slider__control--r")
+                    RightBtn.addEventListener('click', () => {
+                        if (currentIndex < 5) {
+                            currentIndex++;
+                            currentMargin = currentMargin - 740;
+                            sliderWrapper.style.marginLeft = currentMargin + 'px';
+                        }
+    
+                    })
+                    LeftBtn.addEventListener('click', () => {
+                        if (currentIndex > 0) {
+                            currentIndex--;
+                            currentMargin = currentMargin + 740;
+                            sliderWrapper.style.marginLeft = currentMargin + 'px';
+                        }
+                    })
+                })
+    
+            </script>
+</div> 
 
-console.log(document.documentElement.clientWidth)
-addEventListener('resize' , () => {
-    if(document.documentElement.clientWidth< 760){
-        document.querySelector(".sliders__pictures").style.width = "450px"
-    }
-})
-
-
-const sliders = document.querySelectorAll(".sliders__pictures")
-sliders.forEach(slider => {
-    let currentIndex = 0;
-    let currentMargin = 0;
-    const sliderWrapper = slider.querySelector(".slider__wrapper")
-    const items = sliderWrapper.querySelectorAll(".slider__item")
-
-    items.forEach(items => {
-        items.style.width = maxWidth / itemsCount + 'px';
-    })
-    sliderWrapper.style.width = maxWidth / itemsCount + items.length + 'px';
-
-    const LeftBtn  = document.querySelector(".slider__control--l")
-    const RightBtn = document.querySelector(".slider__control--r")
-    RightBtn.addEventListener('click', () => {
-        if(currentIndex < 4 ){
-            currentIndex++;
-            currentMargin = currentMargin - 650;
-            sliderWrapper.style.marginLeft = currentMargin + 'px';
-        }
-        
-    })
-    LeftBtn.addEventListener('click', () => {
-        if(currentIndex > 0 ){
-            currentIndex--;
-            currentMargin = currentMargin + 650;
-            sliderWrapper.style.marginLeft = currentMargin + 'px';
-        }
-    })
-})
-
-        </script>
         <%- include('particles/footer.ejs') %>

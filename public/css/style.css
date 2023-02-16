@@ -1632,7 +1632,7 @@ form .Btn button:hover {
   font-family: Century Gothic;
   color: #FFF;
   text-transform: uppercase;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  
   background-color: rgb(45, 45, 45);
   cursor: pointer;
 
@@ -1860,20 +1860,25 @@ a {
 	
 }
 .slider__image{
-  display:inline-block;
   position:relative;
   border-radius: 15px;
-  width:640px;
-  margin-right: 10px;
-  
 }
+
+.slider__item{
+  padding-left: 50px;
+  padding-right:50px;
+  padding-top:50px;
+  padding-bottom: 120px;
+  background-color: #777;
+}
+
 .slider__wrapper{
   display:flex;
-  transition: all .2s ease;
+  transition: all .6s ease;
 }
 .sliders__pictures
 {
-  width:1300px;
+  width:740px;
   
   overflow: hidden;
   margin:0 auto;
@@ -1881,21 +1886,23 @@ a {
 }
 .slider__control{
   padding:20px;
+  padding-bottom: 100px;
   background: none;
   border:none;
   /* mix-blend-mode: overlay; */
-  color:white;
+  color:rgb(255, 255, 255);
+  z-index: 9;
   
 }
 
 .slider__control--l{
   position: absolute;
-  bottom:80px;
+  top:250px;
 
 }
 .slider__control--r{
   position: absolute;
-  bottom:80px;
+  top:250px;
   right:100px;
 }
 .popular{
@@ -1905,6 +1912,7 @@ a {
   position: relative;
   left:100px;
 }
+
 /* ////////////////////////////////////// */
 .films__stills__image{
   display:inline-block;

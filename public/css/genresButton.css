@@ -1,139 +1,105 @@
 .search__films {
     position: absolute;
     right: 38%;
-    top: 100px;
+    top:15%;
     width: 25%;
     height: 50px;
     border: none;
     border-radius: 10px 0 0 10px;
     z-index: 1;
     font-family: Century Gothic;
+    background-color: #ffffff;
+    opacity: 55%;
+    color:rgb(255, 255, 255);
   }
+  
   .search__films__button {
-    position: absolute;
-    right: 32%;
-    top: 101px;
+    position: relative;
+    
     width: 80px;
-    height: 50px;
+    height: 52px;
     border: none;
     border-radius: 0 10px 10px 0;
-    background-color: rgb(255, 207, 110);
+    background-color: rgb(106, 106, 106);
     z-index: 1;
   }
   
-  .genres__btn {
-    position: relative;
-    right: 2%;
-    top: -60px;
+  .genres__container{
+    position:relative;
+    
+    
+    border:2px solid #777;
   }
+  div.searchForGenresBtn {
+    position:relative;
+    background-color: #a5a5a5;
+    border-left:2px solid #777;
+    border-right:2px solid #777;
   
-  .genres {
-    position: relative;
-    right: 10%;
-    z-index: 1;
-    top: -60px;
+    
+   
+    overflow: auto;
+    white-space: nowrap;
+}
+
+::-webkit-scrollbar{
+width:15px;
+background-color: #a5a5a5;
+
+position:relative;
+top:50px;
+  
+}
+::-webkit-scrollbar-track{
+  width:15px;
+
+  background-color: #e3e3e3;
+  top:50px;
+    
   }
+  ::-webkit-scrollbar-thumb{
+    width:15px;
+    top:50px;
+    border-radius: 10px;
+    background-color: #c2bdbd;
+      
+    }
+div.searchForGenresBtn form {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    height:50px;
+    text-decoration: none;
+}
+
+div.searchForGenresBtn  form:hover {
+    background-color: #777;
+}
+
   
   .search__of__genre {
-    padding: 5px;
     height: 30px;
     border: none;
     background-color: #a5a5a5;
-    position: relative;
     opacity: 80%;
     z-index: 1;
     color: white;
-    border-radius: 10px;
+    
     font-family: Century Gothic;
   }
-  
-  .bovik {
-    position: absolute;
-    right: 850px;
-    top: 170px;
+  .allgenre{
+   height: 50px;
+    border: none;
+    background-color: #a5a5a5;
+    opacity: 80%;
+    z-index: 1;
+    color: white;
+    
+    font-family: Century Gothic;
+   
   }
-  
-  .adventure {
-    position: absolute;
-    right: 740px;
-    top: 170px;
+  .allgenre:hover{
+    background-color: #777;
   }
-  
-  .triller {
-    position: absolute;
-    right: 663px;
-    top: 170px;
-  }
-  
-  .horror {
-    position: absolute;
-    right: 580px;
-    top: 170px;
-  }
-  
-  .dramma {
-    position: absolute;
-    right: 800px;
-    top: 210px;
-  }
-  
-  .comedy {
-    position: absolute;
-    right: 720px;
-    top: 210px;
-  }
-  
-  .melodrama {
-    position: absolute;
-    right: 600px;
-    top: 210px;
-  }
-  
-  .tragedy {
-    position: absolute;
-    right: 520px;
-    top: 210px;
-  }
-  
-  .fantastic {
-    position: absolute;
-    right: 475px;
-    top: 170px;
-  }
-  
-  .anime {
-    position: absolute;
-    right: 450px;
-    top: 210px;
-  }
-  
-  .mistyc {
-    position: absolute;
-    right: 820px;
-    top: 250px;
-  }
-  
-  .detective {
-    position: absolute;
-    right: 740px;
-    top: 250px;
-  }
-  
-  .family {
-    position: absolute;
-    right: 650px;
-    top: 250px;
-  }
-  
-  .child {
-    position: absolute;
-    right: 570px;
-    top: 250px;
-  }
-  
-  .istoric {
-    position: absolute;
-    right: 450px;
-    top: 250px;
-  }
+
   
